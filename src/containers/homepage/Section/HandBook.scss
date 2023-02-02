@@ -1,0 +1,87 @@
+.handbook-section{
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    height: 300px;
+    .text-specialty{
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h3{
+            font-weight: 900 !important;
+        }
+        button{
+            border: none;
+            height: 40px;
+            text-transform: uppercase;;
+            &:hover{
+                background-color: #45c3d2;
+            }
+        }
+    }
+    .specialty-content {
+        height: 80%;
+
+        /* the parent */
+        .slick-list {
+            background: #fff;
+        }
+
+        /* the slides */
+        .slick-slide {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .img-customize {
+            padding-left: 5px;
+            padding-right: 5px;
+            display: flex !important;
+            margin-left: 10px;
+            margin-bottom: 30px;
+            align-items: center;
+            .item{
+                margin-top: 10px;
+                display: flex;
+                width: 50%;
+                height: 200px;
+                margin: 10px 10px;
+                .img-content{
+                    width: 50%;
+                    height: 90%;
+                    display: flex;
+                    margin-bottom: 10px;
+                }
+                h5{
+                    font-weight: 600;
+                    margin: 10px 10px;}
+            }
+        }
+
+        .slick-prev { 
+            height: 45px !important;
+            width: 40px !important;
+            z-index: 10;
+            margin-left: 20px !important;
+            background: #45c3d2 !important;
+            opacity: 0.7;
+            &:hover{
+                opacity: 1;
+            }
+        }
+
+        .slick-next {
+            height: 45px !important;
+            width: 40px !important;
+            z-index: 10;
+            margin-right: 20px !important;
+            background: #45c3d2 !important;
+            opacity: 0.7;
+            &:hover{
+                opacity: 1;
+            }
+        }  
+    }
+}

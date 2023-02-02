@@ -1,0 +1,162 @@
+.home-header-container{
+    border: solid 1px red;
+    width: 100%;
+    font-size: 12px ;
+    color: gray;
+    .home-header-content{
+        height: 60px;
+        width: 100%;
+        display: flex;
+        cursor: pointer;
+        background-color: aliceblue;
+        position: sticky ;
+        top: 0;
+        z-index: 100000;
+        .left-content{
+            height: 60px;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{     
+                margin-top: 40px;
+                float: left;
+            }
+            .logo{
+                background: url('../../assets/images/bookingcare-2020.svg') center center no-repeat;
+                height: 80%;
+                width: 60%;
+            }
+           
+        }
+        .mid-content{
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            .mid-content-left{
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                height: 60px;
+                margin-top: 12px ;
+            h6{
+                font-weight: 800;
+                margin-bottom: 0;
+            }
+            p{
+                font-size: 10px;
+            }
+            }
+        }
+        .right-content{
+            display: flex;
+            justify-content: flex-end;
+            text-align: center;
+            align-items: center;
+            width: 20%;
+            height: 60px;
+            margin-right: 30px;
+           
+            h5{
+               font-weight: bold;
+               margin-top: 2px;
+            }
+            .language-VN{
+                margin-left: 25px;
+                margin-right: 15px;
+                opacity: 0.6;
+
+            }
+            .language-EN{
+                opacity: 0.6;
+            }
+            .active{
+                background-color: aquamarine;
+                opacity: 1;
+            }
+        }
+    }
+    .home-header-banner{
+        background-image: url('../../assets/images/bookingcare-cover-4.jpg');
+        height: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 1;
+        .text-banner{
+            background: linear-gradient(rgba(0, 0, 0, 0.25),rgba(255, 255, 255, 0.1));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            color:white;
+            text-transform: uppercase;
+            text-shadow: 2px 2px black;
+            .text-child-1{
+                margin-top: 30px;
+               h1{
+                font-weight: 500;
+               }
+            }
+            .text-child-2{
+                h1{
+                    font-weight: bolder;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .search-banner{
+            display: flex;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            .input-search{
+                width: 100%;
+                input{
+                    background-color: rgb(255, 217, 0);
+                    border-radius: 25px ;
+                    height: 45px;
+                    width: 30%;
+                    padding: 5px;
+                    border: hidden;
+                    outline: none;
+                    font: 15px Arial;
+                    padding: 0 40px;
+                }
+            }
+        }
+        .options-banner{
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 1));
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            align-items: center;
+            margin-top: 150px;
+            .option{
+                width: 200px;
+                height: 140px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                flex-direction: column;
+                margin: 10px 10px;
+                .icon{
+                    border-radius: 50%;
+                    background-color: lightblue;
+                    width: 70px;
+                    height: 70px;
+                    margin-bottom: 10px;
+                }
+                .text{
+                    color: black;
+                    font-size: 15px;
+                    font-weight: 600;
+                    width: 100px;
+                }
+            }
+        }
+    }
+}

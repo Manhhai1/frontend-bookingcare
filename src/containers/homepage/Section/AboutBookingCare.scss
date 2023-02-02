@@ -1,0 +1,19 @@
+.about-bookingcare{
+    height: 400px;
+    width: 80%;
+    margin: 0 10%;
+    background-color: #f9f9f9;
+    h2{
+        font-weight: 700;
+    }
+    .item{
+        height: 100%;
+        .content{
+            height: 80%;
+           iframe{
+               width: 50%;
+               height: 100%;
+           }
+        }
+    }
+}

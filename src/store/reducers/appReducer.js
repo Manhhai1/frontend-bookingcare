@@ -16,14 +16,14 @@ const initialState = {
     }
 }
 
-const appReducer = (state = initialState, action) => {
+const adminReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.APP_START_UP_COMPLETE: 
+        case actionTypes.APP_START_UP_COMPLETE:
             return {
                 ...state,
                 started: true
             }
-        case actionTypes.SET_CONTENT_OF_CONFIRM_MODAL: 
+        case actionTypes.SET_CONTENT_OF_CONFIRM_MODAL:
             return {
                 ...state,
                 contentOfConfirmModal: {
@@ -31,9 +31,15 @@ const appReducer = (state = initialState, action) => {
                     ...action.contentOfConfirmModal
                 }
             }
+        case actionTypes.CHANGE_LANGUAGE:
+            return {
+                ...state,
+                language: action.language
+                
+            }
         default:
             return state;
     }
 }
 
-export default appReducer;
+export default adminReducer;

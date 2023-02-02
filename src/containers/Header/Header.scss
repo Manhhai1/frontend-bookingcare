@@ -3,21 +3,63 @@
 .header-container {
     z-index: 99;
     display: flex;
+    text-align: center;
+    align-items: center;
     justify-content: space-between;
     background-color: $colormain;
     color: $common-text-color;
     height: 40px;
     position: relative;
-    .btn-logout {
-        color: $common-text-color;
-        line-height: 40px;
+    width: 100%;
+    .button{
+        width: 21%;
         height: 40px;
-        padding: 0 10px;
-        &:hover {
-            background-color: darken($colormain, 5);
+        display: flex;
+        .text{
+            text-align: center;
+            align-items: center;
+            width: 65%!important;
+            height: 40px;
+            margin: 0;
+            display: flex;
+            .name{
+                width: 60%;
+                margin-left: 0!important;
+            }
         }
-        i {
-            font-size: $base-size + 1px;
+        .btn-logout {
+            width: 40px;
+            color: $common-text-color;
+            line-height: 40px;
+            height: 40px;
+            padding: 0 10px;
+            &:hover {
+                background-color: darken($colormain, 5);
+            }
+            i {
+                font-size: $base-size + 1px;
+            }
+        }
+        .language{
+            display: flex;
+            width: 100px;
+            font-weight: 600;
+            .language-VI{
+                height: 40px;
+                margin: 10px 15px;
+                cursor: pointer;
+                &.active{
+                  color: orange;
+                }
+            }
+            .language-EN{
+                cursor: pointer;
+                margin: 10px 15px 0 0;
+                margin-right: 50px;
+                &.active{
+                   color: orange;
+                }
+            }
         }
     }
 }

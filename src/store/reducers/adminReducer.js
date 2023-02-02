@@ -1,33 +1,71 @@
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    isLoggedIn: false,
-    adminInfo: null
+    genders: [],
+    roles: [],
+    positions: [],
+    dataDoctorHomePage: [],
+    allDoctors: []
 }
 
-const appReducer = (state = initialState, action) => {
+const adminReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.ADMIN_LOGIN_SUCCESS:
+        case actionTypes.FETCH_GENDER_SUCCESS:
+            state.genders = action.data
             return {
                 ...state,
-                isLoggedIn: true,
-                adminInfo: action.adminInfo
             }
-        case actionTypes.ADMIN_LOGIN_FAIL:
+        case actionTypes.FETCH_GENDER_FAILED:
             return {
                 ...state,
-                isLoggedIn: false,
-                adminInfo: null
             }
-        case actionTypes.PROCESS_LOGOUT:
+        case actionTypes.FETCH_POSITION_SUCCESS:
+            state.positions = action.data
             return {
                 ...state,
-                isLoggedIn: false,
-                adminInfo: null
+            }
+        case actionTypes.FETCH_POSITION_FAILED:
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ROLE_SUCCESS:
+            state.roles = action.data
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ROLE_FAILED:
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_TOP_DOCTOR_HOMEPAGE_SUCCESS:
+            state.dataDoctorHomePage = action.data
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_TOP_DOCTOR_HOMEPAGE_FAILED:
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALL_DOCTOR_SUCCESS:
+            state.allDoctors = action.data
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_DOCTOR_FAILED:
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_POST_INFORMATION_DOCTOR_SUCCESS:
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_POST_INFORMATION_DOCTOR_FAILED:
+            return{
+                ...state
             }
         default:
             return state;
     }
 }
 
-export default appReducer;
+export default adminReducer;

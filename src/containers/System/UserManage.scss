@@ -1,0 +1,49 @@
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+ td > button {
+     margin-left: 20px;
+     width: 60px;
+ }
+ .modal-create-user{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content:  space-between;
+ }
+ .modal-create-user .input{
+   margin: 10px 10px;
+   font-size: 15px;
+   font-weight: 600;
+   width: 45%;
+ }
+ .modal-create-user .input label{
+   margin: 5px;
+   width: 100px;
+ }
+ .modal-create-user .input input{
+    padding: 3px 5px;
+    border-radius: 10px;
+    border: solid 2px gray;
+ }
+ .btn{
+   width: 100px;
+ }

@@ -8,4 +8,8 @@ const getAllDoctors = () => {
 const postInformationDoctor = (data) => {
     return axios.post('api/post-information-doctor', data)
 }
-export { getTopDoctorHome, getAllDoctors, postInformationDoctor }
+const getInformationDoctor =(id)=>{
+    return axios.get(`api/information-doctor?id=${id}`)
+}
+
+export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor }

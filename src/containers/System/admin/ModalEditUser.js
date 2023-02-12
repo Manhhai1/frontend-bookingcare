@@ -7,14 +7,13 @@ import {
     ModalFooter,
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { editUserFromService } from '../../services/userService'
+import { editUserFromService } from '../../../services/userService'
 class EditUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
             userEdit:{}
         }
-        this.componentDidMount()
     }
     handleOnchangeInput = (e, type) => {
         this.state.userEdit[type] = e.target.value
@@ -88,7 +87,7 @@ class EditUser extends Component {
                     <ModalFooter>
                         <Button color="primary" className='btn' onClick={() => { this.handleClickEditUser() }}>
                             Edit
-                        </Button>{' '}
+                        </Button>
                         <Button color="secondary" className='btn' onClick={() => this.toggle()} >
                             Cancel
                         </Button>

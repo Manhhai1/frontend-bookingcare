@@ -58,6 +58,8 @@
         .schedule-examination{
             margin-top: 30px;
             width: 50%;
+            display: flex;
+            flex-direction: column;
             #date-examinates{
                 border: none;
                 border-bottom: solid 1px #555;
@@ -67,14 +69,18 @@
                 font-weight: 600;
                 padding: 10px;
                 width: 200px;
+                
                 .option{
-                  
-                    font-size: 1.2em;
-                    
+                    font-size: 1em;     
+                    text-align:justify;
+                    width: 100%;
                 }
             }
             h4{
+                padding: 10px;
+                display:flex;
                 margin-top: 20px;
+                float: left!important;
             }
             .hours-examinates{
                 display: flex;

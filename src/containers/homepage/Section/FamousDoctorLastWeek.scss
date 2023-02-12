@@ -1,16 +1,43 @@
 .famous-doctor-lastweek-section{
     
     background-color: #f9f9f9;
-    margin-left: 10% !important;
-    margin-right: 10% !important;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
     margin-bottom: 5%;
-    margin-top: 5%;
     height: 320px;
-    .text-specialty{
-        height: 50px;
+    .text-famous-doctors{
+        height: 60px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-align: center;
+        .famous-doctor{
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            text-align: center;
+            display: flex;
+            font-size: 1.2em;
+        }
+        .button-more{
+            margin-top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600!important;
+            height: 40px;
+            width: 150px;
+            background-color: #eee;
+            &:hover{
+                background-color: #FFC419;
+            }
+            h6{
+                margin: 0;
+                font-weight: 600;
+                justify-content: center;
+            }
+        }
         h3{
             font-weight: 600 !important;
         }
@@ -51,6 +78,10 @@
                 width: 150px;
                 height: 150px;
                 border-radius: 50% 50%;
+            }
+            &:hover{
+                cursor: pointer;
+                color: orange;
             }
         }
 

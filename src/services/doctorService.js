@@ -8,8 +8,20 @@ const getAllDoctors = () => {
 const postInformationDoctor = (data) => {
     return axios.post('api/post-information-doctor', data)
 }
-const getInformationDoctor =(id)=>{
+const getInformationDoctor = (id) => {
     return axios.get(`api/information-doctor?id=${id}`)
 }
 
-export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor }
+const postScheduleDoctor = (data) => {
+    return axios.post('api/post-schedule-doctor', data)
+}
+const getScheduleDoctor = (id) => {
+    return axios.get(`api/get-schedule-doctor?id=${id}`)
+}
+const postDoctorInfor = (data) => {
+    return axios.post('api/post-infor-doctor', data)
+}
+const getDoctorInfor = (id) => {
+    return axios.get(`api/doctor-infor?id=${id}`)
+}
+export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor, postScheduleDoctor, getScheduleDoctor, postDoctorInfor, getDoctorInfor }

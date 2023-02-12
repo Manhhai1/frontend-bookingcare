@@ -67,6 +67,7 @@
         "admin":{
             "manage-user": "Người dùng",
             "manage-doctor":"Quản lý bác sĩ",
+            "manage-information-doctor":"Quản lý thông tin bác sĩ",
             "manage-admin": "Quản lý admin",
             "crud":"CRUD user",
             "crud-redux": "CRUD redux",
@@ -75,7 +76,14 @@
             "specialty":"Chuyên khoa",
             "manage-specialty":"Quản lý chuyên khoa",
             "handbook":"Cẩm nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "manage-handbook": "Quản lý cẩm nang",
+            "information-doctor":"Thông tin bác sĩ",
+            "manage-schedule-doctor": "Quản lý lịch khám bác sĩ"
+
+        },
+        "doctor":{
+            "header":"Bác sĩ",
+            "schedule": "Quản lý khám bệnh"
         }
     },
     "manage-user":{

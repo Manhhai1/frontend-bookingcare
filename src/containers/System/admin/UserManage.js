@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CreateNewUser from './ModalCreateNewUser'
-import { getAllUsers, createNewUserFromSevice, deleteUserFromService } from '../../services/userService'
+import { getAllUsers, createNewUserFromSevice, deleteUserFromService } from '../../../services/userService'
 import './UserManage.scss'
-import { emitter } from '../../utils/emitter';
+import { emitter } from '../../../utils/emitter';
 import EditUser from './ModalEditUser'
 import { toast } from 'react-toastify';
 import { FormattedMessage } from 'react-intl';
-import { LANGUAGES } from '../../utils';
+import { LANGUAGES } from '../../../utils';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 // import style manually
@@ -20,9 +20,6 @@ import 'react-markdown-editor-lite/lib/index.css';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 // Finish!
-function handleEditorChange({ html, text }) {
-  console.log('handleEditorChange', html, text);
-}
 
 class UserManage extends Component {
     constructor(props) {
@@ -34,7 +31,7 @@ class UserManage extends Component {
             userEdit: {}
         }
     }
-    
+
     async componentDidMount() {
         await this.getAllUsers()
     }
@@ -90,12 +87,10 @@ class UserManage extends Component {
             isOpenEditModal: true,
             userEdit: user
         })
-        console.log(this.state.userEdit)
     }
-    
+
     render() {
         let language = this.props.language
-        
         return (
             <div>
                 <div className="title text-center">Manage users</div>
@@ -124,6 +119,7 @@ class UserManage extends Component {
                             <th><FormattedMessage id={'manage-user.roleId'}></FormattedMessage></th>
                             <th><FormattedMessage id={'manage-user.position'}></FormattedMessage></th>
                             <th><FormattedMessage id={'manage-user.image'}></FormattedMessage></th>
+                            <th>SpecialtyId</th>
                             <th><FormattedMessage id={'manage-user.action'}></FormattedMessage></th>
                         </tr>
                     </thead>
@@ -140,7 +136,8 @@ class UserManage extends Component {
                                         <td>{item.gender}</td>
                                         <td>{item.roleId}</td>
                                         <td>{item.positionId}</td>
-                                        <td><img style={{height: '70px'}} src={item.image} alt="" /></td>
+                                        <td><img style={{ height: '70px' }} src={item.image} alt="" /></td>
+                                        <td>{item.specialtyId}</td>
                                         <td>
                                             <button type="button" className="btn btn-warning"
                                                 onClick={() => { this.handleEditUser(item) }}>Edit</button>
@@ -152,7 +149,6 @@ class UserManage extends Component {
                         }
                     </tbody>
                 </table>
-                <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
             </div>
         );
     }

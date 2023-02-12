@@ -20,7 +20,45 @@ export const fetchGenderSuccess = (data) => ({
 export const fetchGenderFail = () => ({
     type: actionTypes.FETCH_GENDER_FAILED
 });
+export const fetchProvinceStart = () => {
+    return async (dispatch, getState) => {
+        let res = await getAllcode('province')
+        if (res) {
+            dispatch(fetchProvinceSuccess(res))
+        }
+        else {
+            dispatch(fetchProvinceFail())
+        }
 
+    }
+}
+export const fetchProvinceSuccess = (data) => ({
+    type: actionTypes.FETCH_PROVINCE_SUCCESS,
+    data: data
+});
+export const fetchProvinceFail = () => ({
+    type: actionTypes.FETCH_PROVINCE_FAILED
+});
+
+export const fetchPaymentStart = () => {
+    return async (dispatch, getState) => {
+        let res = await getAllcode('PAYMENT')
+        if (res) {
+            dispatch(fetchPaymentSuccess(res))
+        }
+        else {
+            dispatch(fetchPaymentFailed())
+        }
+
+    }
+}
+export const fetchPaymentSuccess = (data) => ({
+    type: actionTypes.FETCH_PAYMENT_SUCCESS,
+    data: data
+});
+export const fetchPaymentFailed = () => ({
+    type: actionTypes.FETCH_PAYMENT_FAILED
+});
 
 export const fetchPositionStart = () => {
     return async (dispatch, getState) => {

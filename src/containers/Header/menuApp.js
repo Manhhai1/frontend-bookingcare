@@ -8,12 +8,11 @@ export const adminMenu = [
                 name: 'menu.admin.crud-redux', link: '/system/user-redux',
             },
             {
-                name: 'menu.admin.manage-doctor', link: '/system/manage-update-doctor',
-                //     subMenus: [
-                //     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
-                //     { name: 'menu.system.system-administrator.product-manage', link: '/system/user-redux' },
-
-                // ]
+                name: 'menu.admin.manage-information-doctor', link: '/system/manage-information-doctors' 
+                
+            },
+            {
+                name:'menu.admin.manage-schedule-doctor', link:'/system/manage-schedule-doctors'
             },
             {
                 name: 'menu.admin.manage-user', link: '/system/user-manage',
@@ -21,6 +20,13 @@ export const adminMenu = [
             {
                 name: 'menu.admin.manage-admin', link: '/system/user-admin',
             },
+            {
+                name: 'menu.doctor.header', menus:[
+                   {
+                    name:'menu.doctor.schedule', link:'/doctor/doctor-schedule'
+                   }
+                ]
+            }
         ],
     },
     {
@@ -34,7 +40,7 @@ export const adminMenu = [
     {
         name: 'menu.admin.specialty', menus: [
             {
-                name: 'menu.admin.manage-specialty', link: '/system/manage-clinic',
+                name: 'menu.admin.manage-specialty', link: '/system/manage-specailty',
             },
 
         ]
@@ -48,3 +54,12 @@ export const adminMenu = [
         ]
     }
 ];
+export const doctorMenu = [
+    {
+        name: 'menu.doctor.header', menus:[
+           {
+            name:'menu.doctor.schedule', link:'/doctor/doctor-schedule'
+           }
+        ]
+    }
+]

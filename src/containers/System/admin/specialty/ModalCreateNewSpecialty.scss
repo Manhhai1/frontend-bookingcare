@@ -1,0 +1,27 @@
+.modal-content{
+    height: 650px!important;
+    .modal-body{
+        width: 100%;
+        .editor-description{
+            margin-top: 10px!important;
+        }
+        .avatar-specialty
+        {
+            .avatar-input{
+                display: none;
+            }
+            #label-avatar{
+                background-color: aliceblue;
+                height: 50px;
+                width: 120px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 10px;
+            }
+            display: flex;
+            width: 100%;
+        }
+    }
+   
+}

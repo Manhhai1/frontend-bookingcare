@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { toast } from 'react-toastify';
-import { LANGUAGES , CommonUtils } from '../../utils';
+import { LANGUAGES, CommonUtils } from '../../../utils';
 import {
     Button,
     Modal,
@@ -9,7 +9,7 @@ import {
     ModalBody,
     ModalFooter,
 } from 'reactstrap';
-import { emitter } from '../../utils/emitter';
+import { emitter } from '../../../utils/emitter';
 import { connect } from 'react-redux';
 import { size } from 'lodash';
 import './ModalCreateNewUser.scss'
@@ -27,7 +27,7 @@ class CreateNewUser extends Component {
                 gender: '',
                 roleId: '',
                 position: '',
-                image: null
+                image: ''
             },
             arrGender: [],
             arrPosition: [],
@@ -49,10 +49,8 @@ class CreateNewUser extends Component {
                 position: ''
             }
             this.setState({
-                user: copyUser,
-                arrRole: this.props.roleType
+                user: copyUser
             })
-            console.log(this.props.roleType)
         })
     }
     handleOnchangeInput = (e, type) => {
@@ -67,19 +65,19 @@ class CreateNewUser extends Component {
 
     }
     componentDidUpdate(prevProps, prevState, snapsot) {
-        if (prevProps.genderReduxs !== this.props.genderReduxs) {
-            this.setState({
-                arrGender: this.props.genderReduxs
-            })
-        }
         if (prevProps.positionType !== this.props.positionType) {
             this.setState({
-                arrPosition: this.props.positionType
+                arrPosition: this.props.positionType.typeCode
             })
         }
         if (prevProps.roleType !== this.props.roleType) {
             this.setState({
-                arrRole: this.props.roleType
+                arrRole: this.props.roleType.typeCode
+            })
+        }
+        if (prevProps.genderReduxs !== this.props.genderReduxs) {
+            this.setState({
+                arrGender: this.props.genderReduxs
             })
         }
     }
@@ -102,18 +100,19 @@ class CreateNewUser extends Component {
     checkValueInput = () => {
         let type = ['email', 'firstName', 'lastName', 'password', 'address', 'gender', 'roleId', 'phoneNumber']
         for (let i = 0; i < type.length; i++) {
-            if (!this.state[type[i]]) {
+            if (!this.state.user[type[i]]) {
                 return false
             }
         }
         return true
     }
-    handleClickCreateNewUser = () => {
+    handleClickCreateNewUser = async () => {
         let check = this.checkValueInput()
-        console.log(this.state.user)
+        console.log(check)
         if (check) {
+
+            await this.props.createNewUser(this.state.user)
             toast.success("create User success")
-            this.props.createNewUser(this.state.user)
             this.toggle()
         }
         else {
@@ -122,141 +121,158 @@ class CreateNewUser extends Component {
     }
     render() {
         let language = this.props.language
+        console.log(this.state.user)
         return (
             <>
                 <Modal
                     isOpen={this.props.isOpen}
-                    toggle={() => { this.props.setOpenModal() }}
+                    toggle={() => this.toggle()}
                     size='lg'
                     centered
                 >
-                    <ModalHeader>Create New User</ModalHeader>
+                    <ModalHeader><h4>Create New User</h4></ModalHeader>
                     <ModalBody className='modal-create-user'>
                         <div className='input'>
                             <label for="email"><FormattedMessage id={'manage-user.email'}></FormattedMessage></label>
                             <input type="text"
+                                className='form-control'
                                 id='email'
                                 onChange={(e) => this.handleOnchangeInput(e, 'email')}
                                 value={this.state.user.email}
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor="firstName"><FormattedMessage id={'manage-user.firstName'}></FormattedMessage></label>
+                            <label for="firstName"><FormattedMessage id={'manage-user.firstName'}></FormattedMessage></label>
                             <input type="text"
+                                className='form-control'
                                 id='firstName'
                                 onChange={(e) => this.handleOnchangeInput(e, 'firstName')}
                                 value={this.state.user.firstName}
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor="lastName"><FormattedMessage id={'manage-user.lastName'}></FormattedMessage></label>
+                            <label for="lastName"><FormattedMessage id={'manage-user.lastName'}></FormattedMessage></label>
                             <input type="text"
+                                className='form-control'
                                 id='lastName'
                                 onChange={(e) => this.handleOnchangeInput(e, 'lastName')}
                                 value={this.state.user.lastName}
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor="password"><FormattedMessage id={'manage-user.password'}></FormattedMessage></label>
+                            <label for="password"><FormattedMessage id={'manage-user.password'}></FormattedMessage></label>
                             <input type="password"
+                                className='form-control'
                                 id='password'
                                 onChange={(e) => this.handleOnchangeInput(e, 'password')}
                                 value={this.state.user.password}
                             />
                         </div>
                         <div className='input'>
-                            <label htmlFor="address"><FormattedMessage id={'manage-user.address'}></FormattedMessage></label>
-                            <input type="text"
+                            <label for="address"><FormattedMessage id={'manage-user.address'}></FormattedMessage></label>
+                            <input type="text" className='form-control'
                                 id='address'
                                 onChange={(e) => this.handleOnchangeInput(e, 'address')}
                                 value={this.state.user.address}
                             />
                         </div>
-                        <div className='input'>
-                            <label htmlFor="gender"><FormattedMessage id={'manage-user.gender'}></FormattedMessage></label>
-                            <select
-                                class='select'
-                                id='gender'
+                        <div className='input '>
+                            <label for="gender"><FormattedMessage id={'manage-user.gender'}></FormattedMessage></label>
+                            {
+                                this.state.arrGender && this.state.arrGender.length > 0 && <select
+                                    className='select form-control'
+                                    id='gender'
 
-                                onChange={(e) => this.handleOnchangeInput(e, 'gender')}
-                                value={this.state.user.gender}
-                            >
-                                {
-                                    this.state.arrGender.map((item, index) => {
+                                    onChange={(e) => this.handleOnchangeInput(e, 'gender')}
+                                    value={this.state.user.gender}
+                                >
+                                    {
+                                        this.state.arrGender.map((item, index) => {
 
-                                        return (
-                                            <option key={index} value={item.keyMap} >
-                                                {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
-                                        )
-                                    })
-                                }
-                            </select>
+                                            return (
+                                                <option key={index} value={item.keyMap} >
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            }
                         </div>
                         <div className='input'>
-                            <label htmlFor="roleId"><FormattedMessage id={'manage-user.roleId'}></FormattedMessage></label>
-                            <select
-                                class='select'
-                                id='selectRoleId'
-                                onChange={(e) => this.handleOnchangeInput(e, 'roleId')}
+                            <label for="roleId"><FormattedMessage id={'manage-user.roleId'}></FormattedMessage></label>
+                            {
+                                this.state.arrRole && this.state.arrRole.length > 0 &&
+                                <select
+                                    className='select form-control'
+                                    id='selectRoleId'
+                                    onChange={(e) => this.handleOnchangeInput(e, 'roleId')}
 
-                            >
-                                {
-                                    this.state.arrRole.map((item, index) => {
-                                        return (
-                                            <option key={index} value={item.keyMap} >
-                                                {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
-                                        )
-                                    })
-                                }
-                            </select>
+                                >
+                                    {
+                                        this.state.arrRole.map((item, index) => {
+                                            return (
+                                                <option key={index} value={item.keyMap} >
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            }
                         </div>
                         <div className='input'>
-                            <label htmlFor="position"><FormattedMessage id={'manage-user.position'}></FormattedMessage></label>
-                            <select
-                                class='select'
-                                id='position'
-                                value={this.state.user.position}
-                                onChange={(e) => this.handleOnchangeInput(e, 'position')}
+                            <label for="position"><FormattedMessage id={'manage-user.position'}></FormattedMessage></label>
+                            {
+                                this.state.arrPosition && this.state.arrPosition.length > 0 && <select
+                                    className='select form-control'
+                                    id='position'
+                                    value={this.state.user.position}
+                                    onChange={(e) => this.handleOnchangeInput(e, 'position')}
 
-                            >
-                                {
-                                    this.state.arrPosition.map((item, index) => {
-                                        return (
-                                            <option key={index} value={item.keyMap} >
-                                                {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
-                                        )
-                                    })
-                                }
-                            </select>
+                                >
+                                    {
+                                        this.state.arrPosition.map((item, index) => {
+                                            return (
+                                                <option key={index} value={item.keyMap} >
+                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            }
                         </div>
                         <div className='input'>
-                            <label htmlFor="phoneNumber"><FormattedMessage id={'manage-user.phoneNumber'}></FormattedMessage></label>
+                            <label for="phoneNumber"><FormattedMessage id={'manage-user.phoneNumber'}></FormattedMessage></label>
                             <input type="text"
                                 id='phoneNumber'
+                                className='form-control'
                                 onChange={(e) => this.handleOnchangeInput(e, 'phoneNumber')}
                                 value={this.state.phoneNumber}
                             />
                         </div>
                         <div className="input">
-                            <p class='field half avatar'>
-                                <label class='label' forHtml='image'><FormattedMessage id={'manage-user.image'}></FormattedMessage></label>
-                                <label htmlFor="file" className='upload-img'>Tải ảnh lên</label>
+                            <p className='field half avatar'>
+                                <label className='label' for='image'><FormattedMessage id={'manage-user.image'}></FormattedMessage></label>
+                                <label for="file" className='upload-img'>Tải ảnh lên</label>
                                 <div>
-                                    <img style={{height: '150px'}} src={this.state.image} />
+                                    <img style={{ height: '100px' }} src={this.state.image} />
                                     <input type="file" name="myImage" id='file' onChange={this.onImageChange} />
                                 </div>
                             </p>
                         </div>
-
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" className='btn' onClick={() => { this.handleClickCreateNewUser() }}>
+                        <div className="input">
+                            <label for="specialtyId">Specialty</label>
+                            <input type="text" id='specialtyId' className='form-control' />
+                        </div>
+                        <button className='button'
+                            onClick={() => this.handleClickCreateNewUser()}>
                             <FormattedMessage id={'manage-user.save'}></FormattedMessage>
-                        </Button>{' '}
-                        <Button color="secondary" className='btn' onClick={() => this.toggle()} >
+                        </button>
+                        <button className='button'
+                            onClick={() => this.toggle()}>
                             <FormattedMessage id={'manage-user.cancel'}></FormattedMessage>
-                        </Button>
-                    </ModalFooter>
+                        </button>
+                    </ModalBody>
+
                 </Modal>
 
             </>

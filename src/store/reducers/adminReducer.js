@@ -4,6 +4,8 @@ const initialState = {
     genders: [],
     roles: [],
     positions: [],
+    provinces: [],
+    payments: [],
     dataDoctorHomePage: [],
     allDoctors: []
 }
@@ -37,6 +39,15 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
+        case actionTypes.FETCH_PROVINCE_SUCCESS:
+            state.provinces = action.data
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_PROVINCE_FAILED:
+            return {
+                ...state,
+            }
         case actionTypes.FETCH_TOP_DOCTOR_HOMEPAGE_SUCCESS:
             state.dataDoctorHomePage = action.data
             return {
@@ -60,9 +71,19 @@ const adminReducer = (state = initialState, action) => {
                 ...state
             }
         case actionTypes.FETCH_POST_INFORMATION_DOCTOR_FAILED:
-            return{
+            return {
                 ...state
             }
+        case actionTypes.FETCH_PAYMENT_SUCCESS:
+            state.payments = action.data
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_PAYMENT_FAILED:
+            return {
+                ...state
+            }
+
         default:
             return state;
     }

@@ -1,0 +1,151 @@
+.container-specialty {
+    height: 1200px!important;
+    .header {
+        width: 100%;
+        height: 60px;
+        position: relative;
+        background-color: #45c3d2;
+    }
+    .specialty-body {
+        background-color: #FCFAF6;
+        padding-top: 30px;
+        padding-left: 10%;
+        padding-right: 10%;
+        .section-specialty-description {
+            display: flex;
+            flex-direction: column;
+            .specialty-name {
+                float: left!important;
+            }
+            .description-content {
+                z-index: 1;
+                position: relative;
+                height: 200px;
+            }
+        }
+        .section-doctors {
+            z-index: 10;
+            position: relative;
+            width: 100%;
+            display: flex;
+        
+            flex-direction: column;
+            .doctor-section{
+                border: solid 2px #555;
+                display: flex;
+                margin: 10px;
+                .avatar-doctor {
+                    width: 15%;
+                    height: 500px;
+                    display: flex;
+                    justify-content: center;
+                    background-color: #45c3d2;
+                    img{
+                        margin-top: 20px;
+                        width: 120px;
+                        height: 120px;
+                        text-align: center;
+                        border-radius: 50%;
+                    }
+                }
+                .description-doctor {
+                    padding-left: 20px;
+                    width: 43%;
+                    padding-top: 20px;
+                    padding-right: 20px;
+                    background-color: #FCFAF6;
+                    height: 500px;
+                    h5{
+                        font-weight: 600;
+                        color: #45c3d2;
+                    }
+                    .province{
+                        font-weight: 600;
+                    }
+                }
+                .schedule-doctor {
+                    border-left: 0.5px solid #eee;
+                    width: 42%;
+                    background-color: #fff;
+                    height: 500px;
+                    padding-top: 20px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    h6{
+                        font-weight: 600;
+                        margin-top: 20px;
+                        margin-left: 10px;
+                    }
+                    .address{
+                        p{
+                            padding-left: 10px;
+                        }
+                        border-bottom: 1px solid #eee;
+                    }
+                    .hours{
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding-bottom: 10px;
+                        border-bottom: solid 1px #eee;
+                        .btn-hour{
+                            margin-left: 10px;
+                            height: 50px;
+                            width: 160px;
+                            display: flex;
+                            justify-content: center;
+                            text-align: center;
+                            align-items: center;
+                            font-weight: 600;
+                            font-size: 1.2em;
+                            border: none;
+                            background: #fff04b;
+                            cursor: pointer;
+                            &:hover{
+                                border: solid 2px blue;
+                            }
+                        }
+                    }
+                        #schedule-id{
+                            border: none;
+                            border-bottom: solid 1px #555;
+                            
+                            background-color: transparent;
+                            font-size: 18px;
+                            font-weight: 600;
+                            padding-bottom: 10px;
+                            width: 200px;                           
+                            .option{
+                                color: #337ab7;
+                                font-size: 1em;     
+                                text-align:justify;
+                                width: 100%;
+                                margin-left: 10px;
+                            }
+                    }
+                }
+            }
+        }
+        .button-role{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            font-weight: 600;
+            height: 30px;
+            border: solid 1px #555;
+            color: #337ab7;
+            padding:  2px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .view-more {
+            height: 30px;
+            width: 100px;
+            color: lightblue;
+            z-index: 20;
+            position: relative;
+            margin-left: 10px;
+            background-color: #FCFAF6;
+        }
+    }
+}

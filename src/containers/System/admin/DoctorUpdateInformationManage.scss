@@ -7,6 +7,9 @@
         margin-bottom: 10px;
     }
 }
+label{
+    font-weight: 600;
+}
 button{
     padding: 20px;
     margin-top: 15px;
@@ -16,11 +19,26 @@ button{
 }
 .more-infor{
     display: flex;
+    justify-content: center;
     gap: 15px;
+    flex-wrap: wrap;
     .content-left{
-        width: 30%;
+        width: 20%;
+    }
+    .section-price{
+        width: 20%;
+    }
+    .form-of-payment{
+        width: 20%;
+    }
+    .section-province{
+        width: 20%;
     }
     .content-right{
         width: 70%;
+        margin-bottom: 50px;
+    }
+    .width{
+        width: 20%;
     }
 }

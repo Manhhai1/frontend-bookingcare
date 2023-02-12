@@ -1,57 +1,74 @@
 .specialty-section{
-    height: 300px;
-    background-color: #f9f9f9;
-    margin-left: 10% !important;
-    margin-right: 10% !important;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    .text-specialty{
+    background-color: white;
+    padding-left: 10% ;
+    padding-right: 10%;
+        .text-specialties{
         height: 20%;
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: center!important;
-        text-align: center!important;
-        h3{
-            font-weight: 900 !important;
+        align-items: center;
+        text-align: center;
+        .popular-specialty{
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            text-align: center;
+            display: flex;
+            font-size: 1.2em;
+            font-weight: 600;
         }
-        button{
-            border: none;
+        .button-more{
+            margin-top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600!important;
             height: 40px;
-            text-transform: uppercase;;
+            width: 150px;
+            background-color: #eee;
+            text-transform: uppercase;
+            border: none;
             &:hover{
-                background-color: #45c3d2;
+                background-color: #FFC419;
+            }
+            h6{
+                margin: 0;
+                font-weight: 600;
+                justify-content: center;
             }
         }
     }
     .specialty-content {
-        height: 80%;
+        height: 100%;
 
         /* the parent */
       
         /* the slides */
         .slick-slide {
             padding-left: 10px;
-            padding-right: 10px;
-        }
-        
-        .img-customize {
-            height: 220px;
-            display: flex !important;
-            margin-left: 10px;
-
-            margin-bottom: 30px;
-            align-items: center;
-            .img-content{
-                width: 100%;
-                height: 80% !important;
+            .slick-list{
                 display: flex;
-                text-align: center;
-                align-items: center;
-                padding: 5px;
+                align-items: center!important;
+                text-align: center!important;
             }
         }
-
+        .img-customize {    
+            height: 220px;
+            width: 100%!important;
+            display: flex ;
+            flex-direction: column;
+            align-items: center;
+            img{
+               width: 95%;
+            }
+            &:hover{
+                cursor: pointer;
+                color: orange;
+            }
+        } 
+        
         .slick-prev { 
             height: 45px !important;
             width: 40px !important;

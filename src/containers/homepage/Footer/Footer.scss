@@ -1,30 +1,66 @@
 .footer{
-    .footer{
-        background: #152F4F;
-        color:white;
-        
-        .links{
-          ul {list-style-type: none;}
-          li a{
-            color: white;
-            transition: color .2s;
-            &:hover{
-              text-decoration:none;
-              color:#4180CB;
-              }
-          }
-        }  
-        .about-company{
-          i{font-size: 25px;}
-          a{
-            color:white;
-            transition: color .2s;
-            &:hover{color:#4180CB}
-          }
-        } 
-        .location{
-          i{font-size: 18px;}
-        }
-        .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+  background-color:  #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+  z-index: 10;
+  .content-footer{
+    width: 80%;
+    display: flex;
+    .certification{
+      width: 45%;
+      h5{
+        font-weight: 600;
       }
+      p{
+        font-size: 1.1em;
+      }
+      img{
+        width: 300px;
+        height: 60px;
+        margin-bottom: 15px;
+      }
+      .icon{
+        margin-top: 20px;
+        display: flex;
+        img{
+          height: 40px;
+          width: 100px;
+        }
+      }
+    }
+    .contact{
+      width: 30%;
+      ul{
+        list-style-type: none;
+      }
+      a{
+        text-decoration: none;
+        font-size: 1.1em;
+        line-height: 2.5;
+      }
+    }
+    .address{
+      font-size: 1.1em;
+      h5{
+        font-weight: 600;
+      }
+        .item{
+           margin-bottom: 30px;
+        }
+    }
+  }
+  .app{
+    border-top: 1px solid #555;
+    height: 50px;
+    font-size: 1.2em;
+    padding: 9px;
+  }
+  .footer-bottom{
+     background-color: #45c3d2;
+     height: 90px;
+     width: 100%;
+  }
 }

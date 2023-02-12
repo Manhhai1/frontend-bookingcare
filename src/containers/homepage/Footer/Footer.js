@@ -7,38 +7,50 @@ class Footer extends Component {
     render() {
         return (
             <div className='footer'>
-                <div class="mt-5 pt-5 pb-5 footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5 col-xs-12 about-company">
-                                <h2>Heading</h2>
-                                <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
-                                <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
-                            </div>
-                            <div class="col-lg-3 col-xs-12 links">
-                                <h4 class="mt-lg-0 mt-sm-3">Links</h4>
-                                <ul class="m-0 p-0">
-                                    <li>- <a href="#">Lorem ipsum</a></li>
-                                    <li>- <a href="#">Nam mauris velit</a></li>
-                                    <li>- <a href="#">Etiam vitae mauris</a></li>
-                                    <li>- <a href="#">Fusce scelerisque</a></li>
-                                    <li>- <a href="#">Sed faucibus</a></li>
-                                    <li>- <a href="#">Mauris efficitur nulla</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-4 col-xs-12 location">
-                                <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-                                <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-                                <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-                                <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
-                            </div>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col copyright">
-                                <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
-                            </div>
+                <div className="content-footer">
+                    <div className="certification">
+                        <img src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg" alt="" />
+                        <h5>Công ty Cổ phần Công nghệ BookingCare</h5>
+                        <p>28 Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nội</p>
+                        <p>ĐKKD số: 0106790291. Sở KHĐT Hà Nội cấp ngày 16/03/2015</p>
+                        <div className="icon">
+                            <img src="https://bookingcare.vn/assets/icon/bo-cong-thuong.svg" alt="" />
+                            <img src="https://bookingcare.vn/assets/icon/bo-cong-thuong.svg" alt="" />
                         </div>
                     </div>
+                    <div className="contact">
+                        <ul>
+                            <li> <a href="">Liên hệ hợp tác</a></li>
+                            <li> <a href="">Gói chuyển đổi số doanh nghiệp</a></li>
+                            <li> <a href="">Tuyển dụng</a></li>
+                            <li><a href="">Câu hỏi thường gặp</a></li>
+                            <li> <a href="">Điều khoản sử dụng</a></li>
+                            <li> <a href="">Chính sách Bảo mật</a></li>
+                            <li><a href="">Quy trình hỗ trợ giải quyết khiếu nại</a></li>
+                            <li><a href="">Quy chế hoạt động</a></li>
+                        </ul>
+                    </div>
+                    <div className="address">
+                            <div className="headquarters item">
+                                    <h5>Trụ sở tại Hà Nội</h5>
+                                    <p>28 Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nội</p>
+                            </div>
+                            <div className="office item">
+                                    <h5>Văn phòng tại TP Hồ Chí Minh</h5>
+                                    <p>Số 01, Hồ Bá Kiện, Phường 15, Quận 10</p>
+                            </div>
+                            <div className="support item">
+                                    <h5>Hỗ trợ khách hàng</h5>
+                                    <p>support@bookingcare.vn (7h - 18h)</p>
+                            </div>
+                    </div>
+
+                </div>
+                <div className="app">
+                    Tải ứng dụng BookingCare cho điện thoại hoặc máy tính bảng: <a href="">Android</a> - <a href="">Iphone/Ipad</a> - <a href="">Khác</a>
+                </div>
+                <div className="footer-bottom">
+                    
                 </div>
             </div>
         );

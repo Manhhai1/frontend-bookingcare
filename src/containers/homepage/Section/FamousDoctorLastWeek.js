@@ -69,9 +69,9 @@ class FamousDoctorLastWeek extends Component {
 
         return (
             <div className='famous-doctor-lastweek-section'>
-                <div className="text-specialty">
-                    <h3>Bác sĩ nổi bật tuần qua</h3>
-                    <button><h4>Xem them</h4></button>
+                <div className="text-famous-doctors">
+                    <h3 className='famous-doctor'>Bác sĩ nổi bật tuần qua</h3>
+                    <button className='button-more'><h6>Xem thêm</h6></button>
                 </div>
                 <div className="specialty-content">
                     <Slider {...settings}>

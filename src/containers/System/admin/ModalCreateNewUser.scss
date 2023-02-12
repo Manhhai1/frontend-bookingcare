@@ -1,0 +1,17 @@
+.modal-create-user{
+   .button{
+       width: 150px;
+       height: 40px;
+       background-color: yellow;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: 50px;
+       margin-left: 10px;
+       margin-right: 10px;
+       font-weight: 600;
+       &:hover{
+           background-color: orange;
+       }
+   }
+}

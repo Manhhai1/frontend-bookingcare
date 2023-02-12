@@ -1,0 +1,64 @@
+h4{
+    text-align: center;
+    align-items: center;
+    font-weight: 600;
+}
+.manage-schedule{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    .choice-doctor{
+        width: 20%;
+    }
+    .schedule-date-examination{
+        width: 20%;
+    }
+}
+.schedule-hours-examination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+    .schedule-hours{     
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        width: 80%;
+        height: 300px;
+        background-color: #fff;
+        .hours{
+            margin-left: 50px;
+            height: 50px;
+            width: 160px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2em;
+            border: none;
+            background: #fff04b;
+            cursor: pointer;
+            &:hover{
+                border: solid 2px blue;
+            }
+        }
+        .active{
+            background-color: orange;
+        }
+    }
+    .save-schedule{
+        margin-top: 60px;
+        width: 30%;
+        text-align: center;
+        &:hover{
+            background-color: aqua;
+        }
+    }
+}
+

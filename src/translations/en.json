@@ -66,6 +66,7 @@
         "admin":{
             "manage-user": "User",
             "manage-doctor":"Manage doctor",
+            "manage-information-doctor":"Manage information doctor",
             "manage-admin": "Manage admin",
             "crud":"CRUD user",
             "crud-redux": "CRUD redux",
@@ -74,9 +75,13 @@
             "specialty":"Specialty",
             "manage-specialty":"Manage specialty",
             "handbook":"Handbook",
-            "manage-handbook": "Manage handbook"
-    
+            "manage-handbook": "Manage handbook",
+            "manage-schedule-doctor":"Manage schedule doctor"
+        },
+        "doctor":{
+            "heahder":"Manage Doctor's Schedule"
         }
+        
     },
     "system": {
         "user-manage": {

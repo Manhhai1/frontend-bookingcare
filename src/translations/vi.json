@@ -1,30 +1,29 @@
 {
-    "home-header":{
+    "home-header": {
         "speciality": "Chuyên khoa",
-        "search-doctor":"Tìm bác sĩ theo chuyên khoa",
+        "search-doctor": "Tìm bác sĩ theo chuyên khoa",
         "health-facility": "cơ sở y tế",
         "select-room": "Chọn bệnh viện phòng khám",
-        "doctor":"Bác sĩ",
-        "select-doctor":"Chọn bác sĩ giỏi",
+        "doctor": "Bác sĩ",
+        "select-doctor": "Chọn bác sĩ giỏi",
         "fee": "Gói khám",
-        "check-health":"Chăm sóc sức khỏe tổng quát",
+        "check-health": "Chăm sóc sức khỏe tổng quát",
         "support": "Hỗ trợ",
         "welcome": "Xin chào"
     },
-    "banner":{
+    "banner": {
         "title1": "nền tảng y tế",
-        "title2": "Chăm sóc sức khỏe toàn diện", 
-        "child1":"Khám chuyên khoa",
-        "child2":"Khám từ xa",
+        "title2": "Chăm sóc sức khỏe toàn diện",
+        "child1": "Khám chuyên khoa",
+        "child2": "Khám từ xa",
         "child3": "Khám tổng quát",
         "child4": "Xét nghiệm y học",
-        "child5":"Sức khỏe tinh thần", 
-        "child6" :"Khám nha khoa", 
-        "child7":"Gói phẫu thuật", 
+        "child5": "Sức khỏe tinh thần",
+        "child6": "Khám nha khoa",
+        "child7": "Gói phẫu thuật",
         "child8": "Sản phẩm y tế",
-        "child9":" Sức khỏe doanh nghiệp"
+        "child9": " Sức khỏe doanh nghiệp"
     },
-
     "common": {
         "add": "Thêm",
         "edit": "Sửa",
@@ -64,42 +63,43 @@
                 "header": "Tham số hệ thống"
             }
         },
-        "admin":{
+        "admin": {
             "manage-user": "Người dùng",
-            "manage-doctor":"Quản lý bác sĩ",
-            "manage-information-doctor":"Quản lý thông tin bác sĩ",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-information-doctor": "Quản lý thông tin bác sĩ",
             "manage-admin": "Quản lý admin",
-            "crud":"CRUD user",
+            "crud": "CRUD user",
             "crud-redux": "CRUD redux",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
-            "specialty":"Chuyên khoa",
-            "manage-specialty":"Quản lý chuyên khoa",
-            "handbook":"Cẩm nang",
+            "specialty": "Chuyên khoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang",
-            "information-doctor":"Thông tin bác sĩ",
-            "manage-schedule-doctor": "Quản lý lịch khám bác sĩ"
-
+            "information-doctor": "Thông tin bác sĩ",
+            "manage-schedule-doctor": "Quản lý lịch khám bác sĩ",
+            "remote-examination": "Khám từ xa",
+            "manage-remote-examination": "Quản lý khám từ xa"
         },
-        "doctor":{
-            "header":"Bác sĩ",
+        "doctor": {
+            "header": "Bác sĩ",
             "schedule": "Quản lý khám bệnh"
         }
     },
-    "manage-user":{
+    "manage-user": {
         "email": "email",
-        "password":"Mật khẩu",
-        "firstName":"Tên",
-        "lastName":"Họ",
-        "phoneNumber":"Số điện thoại",
+        "password": "Mật khẩu",
+        "firstName": "Tên",
+        "lastName": "Họ",
+        "phoneNumber": "Số điện thoại",
         "address": "Địa chỉ",
-        "gender":"Giới tính",
+        "gender": "Giới tính",
         "position": "Chức danh",
-        "roleId":"Vai trò",
-        "save": "Thêm mới", 
-        "image":"Ảnh đại diện",
+        "roleId": "Vai trò",
+        "save": "Thêm mới",
+        "image": "Ảnh đại diện",
         "cancel": "Hủy bỏ",
-        "action":"Hành động"
+        "action": "Hành động"
     },
     "system": {
         "user-manage": {

@@ -3,12 +3,19 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './HomePageHeader.scss'
 import { FormattedMessage } from 'react-intl';
-import { LANGUAGES } from '../../utils'
+import { LANGUAGES, path } from '../../utils'
 import { changeLanguage } from '../../store/actions'
+import { withRouter } from 'react-router';
 class HomePageHeader extends Component {
 
     ChangeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
+    }
+    handleClickViewMoreSpecialties = () => {
+        this.props.history.push(path.VIEW_MORE_SPECIALTY)
+    }
+    handleViewMoreTelemedicines = () => {
+        this.props.history.push(path.VIEW_MORE_TELEMEDICINE)
     }
     render() {
         let language = this.props.language
@@ -24,13 +31,13 @@ class HomePageHeader extends Component {
                             </div>
                         </div>
                         <div className="mid-content">
-                            <div className="mid-content-left">
+                            <div className="mid-content-left" onClick={this.handleClickViewMoreSpecialties}>
                                 <h6><FormattedMessage id={"home-header.speciality"} /></h6>
-                                <p><FormattedMessage id={"home-header.select-room"} /></p>
+                                <p>Tìm bác sĩ theo chuyên khoa</p>
                             </div>
-                            <div className="mid-content-left">
-                                <h6><FormattedMessage id={"home-header.health-facility"} /></h6>
-                                <p><FormattedMessage id={"home-header.select-room"} /></p>
+                            <div className="mid-content-left" onClick={this.handleViewMoreTelemedicines}>
+                                <h6>Khám từ xa</h6>
+                                <p>Chọn Bác sĩ giỏi</p>
                             </div>
                             <div className="mid-content-left">
                                 <h6><FormattedMessage id={"home-header.doctor"} /></h6>
@@ -123,4 +130,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePageHeader));

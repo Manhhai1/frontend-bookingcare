@@ -103,7 +103,7 @@ export const fetchRoleFail = () => ({
 
 export const fetchTopDoctorHomePageStart = () => {
     return async (dispatch, getState) => {
-        let res = await getTopDoctorHome('50')
+        let res = await getTopDoctorHome('10')
         if (res) {
             dispatch(fetchTopDoctorHomePageSuccess(res))
         }

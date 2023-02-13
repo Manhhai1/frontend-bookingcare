@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getAllSpecialties } from '../../../services/specialtySevice';
 import { path } from '../../../utils';
 import './ViewMoreSpecialty.scss'
+import icon from '../../../assets/images/icon/download.png'
 class ViewMoreSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -29,6 +30,9 @@ class ViewMoreSpecialty extends Component {
             ...images
         })
     }
+    handleBack = () => {
+        this.props.history.push('/home');
+    }
     handleClickViewSpecialty = (id) => {
         this.props.history.push(`/view-specialty/${id}`)
     }
@@ -37,10 +41,12 @@ class ViewMoreSpecialty extends Component {
         return (
             <div className="view-more-container">
                 <div className="view-more-header">
+                    <img className='icon-back' src={icon} alt="" onClick={this.handleBack} />
                     <h4>Chuyên khoa</h4>
                 </div>
                 <div className="view-content">
                     {
+
                         this.state.specialties && this.state.specialties.map((item, index) => {
                             return (
                                 <div className='view-specialty' onClick={() => this.handleClickViewSpecialty(item.id)}>

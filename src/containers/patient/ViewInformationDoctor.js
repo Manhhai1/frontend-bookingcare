@@ -106,23 +106,25 @@ class ViewInformationDoctor extends Component {
                         <div className='avatar-doctor'>
                             <img src={this.convertTypeImage(this.state.data.image)} alt="" />
                         </div>
-                        <div className="information">
-                            {
-                                this.state.data.positionData &&
-                                this.state.data.lastName &&
-                                this.state.data.firstName &&
-                                <h4>{`${this.state.data.positionData.valueVi} 
-                                ${this.state.data.lastName} 
-                                ${this.state.data.firstName}`}</h4>
-                            }
-                            <div className="doctor-summary">
-                                {this.state.data.Markdown.description}
+                        {
+                            this.state.data && this.state.data.Markdown && <div className="information">
+                                {
+                                    this.state.data.positionData &&
+                                    this.state.data.lastName &&
+                                    this.state.data.firstName &&
+                                    <h4>{`${this.state.data.positionData.valueVi} 
+                                 ${this.state.data.lastName} 
+                                 ${this.state.data.firstName}`}</h4>
+                                }
+                                <div className="doctor-summary">
+                                    {this.state.data.Markdown.description}
+                                </div>
+                                <div className="doctor-fb">
+                                    <button className='button'>Like</button>
+                                    <button className='button'>Share</button>
+                                </div>
                             </div>
-                            <div className="doctor-fb">
-                                <button className='button'>Like</button>
-                                <button className='button'>Share</button>
-                            </div>
-                        </div>
+                        }
                     </div>
                     <div className="schedule-doctor">
                         <div className="schedule-examination">
@@ -192,10 +194,10 @@ class ViewInformationDoctor extends Component {
                                 this.state.doctorInfor && <p><b>{this.state.doctorInfor.nameClinic}</b></p>
                             }
                             {
-                                 this.state.doctorInfor && <p><b>{this.state.doctorInfor.addressClinic}</b></p>
+                                this.state.doctorInfor && <p><b>{this.state.doctorInfor.addressClinic}</b></p>
                             }
                             {
-                                this.state.doctorInfor.priceData &&
+                                this.state.doctorInfor && this.state.doctorInfor.priceData &&
                                 <div className='price'>
                                     <h5>GIÁ KHÁM: {this.state.doctorInfor.priceData.valueVi}đ</h5>
                                 </div>
@@ -204,10 +206,11 @@ class ViewInformationDoctor extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="section-information-doctor">
-                    <div dangerouslySetInnerHTML={{ __html: this.state.data.Markdown.contentHTML }}></div>
-
-                </div>
+                {
+                    this.state.data.Markdown && <div className="section-information-doctor">
+                        <div dangerouslySetInnerHTML={{ __html: this.state.data.Markdown.contentHTML }}></div>
+                    </div>
+                }
                 <Footer></Footer>
             </div>
         );

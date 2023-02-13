@@ -24,6 +24,9 @@ import Doctor from '../routes/Doctor';
 import AcceptBooking from './patient/AcceptBooking';
 import ViewSpecialty from './patient/ViewSpecialty';
 import ViewMoreSpecialty from './homepage/viewmore/ViewMoreSpecialty';
+import ViewMoreTelemedicine from './homepage/viewmore/ViewMoreTelemedicine';
+import ViewMoreDoctor from './homepage/viewmore/ViewMoreDoctor';
+import ViewTelemedicine from './patient/ViewTelemedicine';
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"></link>
 
 class App extends Component {
@@ -68,8 +71,12 @@ class App extends Component {
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DOCTOR} component={userIsAuthenticated(Doctor)}></Route>
                                     <Route path='/information-doctor/:id' component={ViewInformationDoctor}></Route>
+                                    <Route path={path.TELEMEDICINE} component={ViewTelemedicine}></Route>
                                     <Route path={path.SPECIALTY} component={ViewSpecialty}></Route>
+
+                                    <Route path={path.VIEW_MORE_DOCTOR} component={ViewMoreDoctor}></Route>
                                     <Route path={path.VIEW_MORE_SPECIALTY} component={ViewMoreSpecialty}></Route>
+                                    <Route path={path.VIEW_MORE_TELEMEDICINE} component={ViewMoreTelemedicine}></Route>
                                     <Route path={path.ACCEPT_BOOKING} component={AcceptBooking}></Route>
                                 </Switch>
                             </CustomScrollbars>

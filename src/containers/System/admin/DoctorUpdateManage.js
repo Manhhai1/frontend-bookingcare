@@ -40,6 +40,7 @@ class DoctorUpdateInformationManage extends Component {
             nameClinic: '',
             note: '',
             count: '',
+            specialtyId: '',
             payment: [],
             province: [],
             status: []
@@ -47,7 +48,8 @@ class DoctorUpdateInformationManage extends Component {
     }
 
     async componentDidMount() {
-        await this.props.getAllDoctors()
+        let allDoctors = await this.props.getAllDoctors()
+        console.log(allDoctors)
         let data = await getAllcode('all')
         let price = []
         let payment = []
@@ -137,9 +139,10 @@ class DoctorUpdateInformationManage extends Component {
                 addressClinic: this.state.addressClinic,
                 nameClinic: this.state.nameClinic,
                 note: this.state.note,
-                count: this.state.count
+                count: this.state.count,
+                specialtyId: this.state.specialtyId
             }
-            let arr = ['doctorId', 'priceId', 'provinceId', 'paymentId', 'addressClinic', 'nameClinic', 'note', 'count']
+            let arr = ['doctorId', 'priceId', 'provinceId', 'paymentId', 'addressClinic', 'nameClinic', 'note', 'count', 'specialtyId']
             let arr1 = ['doctorId', 'contentMarkdown', 'contentHTML', 'description']
             let objPostDoctorInfor = {}
             let objPostMarkdown = {}
@@ -190,6 +193,11 @@ class DoctorUpdateInformationManage extends Component {
     handleOnChangeNote = (e) => {
         this.setState({
             note: e.target.value
+        })
+    }
+    handleOnChangeSpecialty = (e) => {
+        this.setState({
+            specialtyId: e.target.value
         })
     }
     render() {
@@ -254,6 +262,15 @@ class DoctorUpdateInformationManage extends Component {
                             id="basic-url"
                             aria-describedby="basic-addon3"
                             onChange={(e) => this.handleOnChangeAddressClinic(e)} />
+                    </div>
+                    <div className="section-address-clinic width">
+                        <label htmlFor="">Chuyên khoa</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="basic-url"
+                            aria-describedby="basic-addon3"
+                            onChange={(e) => this.handleOnChangeSpecialty(e)} />
                     </div>
                     <div className="section-note width">
                         <label htmlFor="">Note</label>

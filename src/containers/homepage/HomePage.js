@@ -3,32 +3,56 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomePageHeader from '../homepage/HomePageHeader';
 import Specialty from './Section/Specialty';
-import MedicalFacility from './Section/MedicalFacility';
 import './HomePage.scss'
 import FamousDoctorLastWeek from './Section/FamousDoctorLastWeek';
-import HandBook from './Section/HandBook';
-import DoctorsAndMedicalFacilities from './Section/DoctorsAndMedicalFacilities';
 import AboutBookingCare from './Section/AboutBookingCare';
 import Footer from './Footer/Footer';
+import Telemedicine from './Section/Telemedicine';
 class HomePage extends Component {
 
     render() {
         const { isLoggedIn } = this.props;
-        let settings = {
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
+        const settings = {
+            dots: true,
+            infinite: false,
+            speed: 1000,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 2,
+                    },
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
         };
         return (
             <div className='homepage'>
                 <HomePageHeader></HomePageHeader>
-                <Specialty  settings={settings}></Specialty>
-                <MedicalFacility  settings={settings}></MedicalFacility>
-                <FamousDoctorLastWeek  settings={settings}></FamousDoctorLastWeek>
-                <HandBook settings={settings}></HandBook>
+                <Telemedicine settings={settings}></Telemedicine>
+                <Specialty settings={settings}></Specialty>
+                <FamousDoctorLastWeek settings={settings}></FamousDoctorLastWeek>
                 <AboutBookingCare></AboutBookingCare>
-                <DoctorsAndMedicalFacilities></DoctorsAndMedicalFacilities>
                 <Footer></Footer>
             </div>
         );

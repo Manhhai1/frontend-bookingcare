@@ -8,6 +8,7 @@ import DoctorUpdateInformationManage from '../containers/System/admin/DoctorUpda
 import DoctorScheduleManage from '../containers/System/admin/DoctorScheduleManage';
 import SpecialtyManage from '../containers/System/admin/specialty/SpecialtyManage'
 import RemoteExamninationManage from '../containers/System/admin/remote_examination/RemoteExamninationManage';
+import ScheduleTeledoctorManage from '../containers/System/admin/specialty/schedule_teledoctor/ScheduleTeledoctorManage';
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;
@@ -21,6 +22,7 @@ class System extends Component {
                             <Route path="/system/user-redux" component={UserRedux} />
                             <Route path="/system/manage-information-doctors" component={DoctorUpdateInformationManage} />
                             <Route path="/system/manage-schedule-doctors" component={DoctorScheduleManage} />
+                            <Route path='/system/manage-schedule-teledoctors' component={ScheduleTeledoctorManage}></Route>
                             <Route path='/system/manage-specailty' component={SpecialtyManage}></Route>
                             <Route path='/system/manage-remote-examination' component={RemoteExamninationManage}></Route>
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />

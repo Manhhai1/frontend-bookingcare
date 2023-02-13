@@ -1,5 +1,4 @@
 .home-header-container{
-    border: solid 1px red;
     width: 100%;
     font-size: 12px ;
     color: gray;
@@ -9,7 +8,7 @@
         display: flex;
         cursor: pointer;
         background-color: aliceblue;
-        position: sticky ;
+        position: fixed;
         top: 0;
         z-index: 100000;
         .left-content{
@@ -77,6 +76,7 @@
         }
     }
     .home-header-banner{
+        margin-top: 60px;
         background-image: url('../../assets/images/bookingcare-cover-4.jpg');
         height: auto;
         background-position: center;

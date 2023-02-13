@@ -66,9 +66,11 @@ class CreateNewUser extends Component {
     }
     componentDidUpdate(prevProps, prevState, snapsot) {
         if (prevProps.positionType !== this.props.positionType) {
-            this.setState({
-                arrPosition: this.props.positionType.typeCode
-            })
+            if (this.props.positionType) {
+                this.setState({
+                    arrPosition: this.props.positionType.typeCode
+                })  
+            }
         }
         if (prevProps.roleType !== this.props.roleType) {
             this.setState({
@@ -77,7 +79,7 @@ class CreateNewUser extends Component {
         }
         if (prevProps.genderReduxs !== this.props.genderReduxs) {
             this.setState({
-                arrGender: this.props.genderReduxs
+                arrGender: this.props.genderReduxs.typeCode
             })
         }
     }
@@ -107,8 +109,14 @@ class CreateNewUser extends Component {
         return true
     }
     handleClickCreateNewUser = async () => {
-        let check = this.checkValueInput()
-        console.log(check)
+        let check = true;
+        let copyUser = this.state.user
+        if (!copyUser.gender) {
+            copyUser.gender = 'F'
+            this.setState({
+                ...copyUser
+            })
+        }
         if (check) {
 
             await this.props.createNewUser(this.state.user)
@@ -121,7 +129,7 @@ class CreateNewUser extends Component {
     }
     render() {
         let language = this.props.language
-        console.log(this.state.user)
+        console.log(this.props.genderReduxs)
         return (
             <>
                 <Modal
@@ -258,10 +266,6 @@ class CreateNewUser extends Component {
                                     <input type="file" name="myImage" id='file' onChange={this.onImageChange} />
                                 </div>
                             </p>
-                        </div>
-                        <div className="input">
-                            <label for="specialtyId">Specialty</label>
-                            <input type="text" id='specialtyId' className='form-control' />
                         </div>
                         <button className='button'
                             onClick={() => this.handleClickCreateNewUser()}>

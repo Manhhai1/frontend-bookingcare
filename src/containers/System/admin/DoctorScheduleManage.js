@@ -149,6 +149,7 @@ class DoctorScheduleManage extends Component {
                     </div>
                     <button type="button" onClick={this.handleSaveOnChanges} className=" form-control save-schedule">Save</button>
                 </div>
+                
 
             </React.Fragment>
         );

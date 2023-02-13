@@ -19,7 +19,7 @@ class Specialty extends Component {
     async componentDidMount() {
         let data = await getAllSpecialties()
         this.setState({
-            specialties: data.specialties.concat(data.specialties).concat(data.specialties)
+            specialties: data.specialties
         })
     }
     convertTypeImage = (image) => {
@@ -39,40 +39,7 @@ class Specialty extends Component {
     render() {
         console.log(this.state.specialties)
         let language = this.props.language
-        const settings = {
-            dots: true,
-            infinite: false,
-            speed: 1000,
-            slidesToShow: 4,
-            slidesToScroll: 3,
-            initialSlide: 0,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        infinite: true,
-                        dots: true,
-                    },
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        initialSlide: 2,
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    },
-                },
-            ],
-        };
+        let settings = this.props.settings
         return (
             <div className='specialty-section'>
                 <div className="text-specialties">

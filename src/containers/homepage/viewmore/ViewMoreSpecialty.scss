@@ -8,6 +8,14 @@
         padding-left: 10%;
         padding-right: 10%;
         position:fixed;
+        .icon-back{
+            height: 30px;
+            width: 30px;
+            float: left;
+            margin-top: 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
         h4{
             font-weight: 600;
             float: left;

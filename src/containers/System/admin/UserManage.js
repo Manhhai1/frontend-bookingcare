@@ -119,7 +119,6 @@ class UserManage extends Component {
                             <th><FormattedMessage id={'manage-user.roleId'}></FormattedMessage></th>
                             <th><FormattedMessage id={'manage-user.position'}></FormattedMessage></th>
                             <th><FormattedMessage id={'manage-user.image'}></FormattedMessage></th>
-                            <th>SpecialtyId</th>
                             <th><FormattedMessage id={'manage-user.action'}></FormattedMessage></th>
                         </tr>
                     </thead>
@@ -137,7 +136,6 @@ class UserManage extends Component {
                                         <td>{item.roleId}</td>
                                         <td>{item.positionId}</td>
                                         <td><img style={{ height: '70px' }} src={item.image} alt="" /></td>
-                                        <td>{item.specialtyId}</td>
                                         <td>
                                             <button type="button" className="btn btn-warning"
                                                 onClick={() => { this.handleEditUser(item) }}>Edit</button>

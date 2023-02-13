@@ -15,6 +15,9 @@ export const adminMenu = [
                 name: 'menu.admin.manage-schedule-doctor', link: '/system/manage-schedule-doctors'
             },
             {
+                name: 'menu.admin.manage-schedule-teledoctor', link: '/system/manage-schedule-teledoctors'
+            },
+            {
                 name: 'menu.admin.manage-user', link: '/system/user-manage',
             },
             {

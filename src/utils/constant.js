@@ -7,7 +7,10 @@ export const path = {
     DOCTOR: '/doctor',
     ACCEPT_BOOKING: '/accept-booking',
     SPECIALTY: '/view-specialty/:id',
-    VIEW_MORE_SPECIALTY: '/view-more-specialties'
+    TELEMEDICINE: '/view-telemedicine/:id',
+    VIEW_MORE_TELEMEDICINE: '/view-more-telemedicines',
+    VIEW_MORE_SPECIALTY: '/view-more-specialties',
+    VIEW_MORE_DOCTOR: '/view-more-doctors',
 };
 
 export const LANGUAGES = {

@@ -15,13 +15,13 @@ class ModalBooking extends Component {
         super(props)
         this.state = {
             status: '',
-            paymentId: this.props.doctorInfor.paymentId,
+            paymentId: '',
             genderId: 'M',
             namePatient: null,
             phoneNumber: '',
-            doctorId: this.props.doctorInfor.doctorId,
+            doctorId: '',
             patientId: '',
-            scheduleId: this.props.scheduleId,
+            scheduleId: '',
             provinceId: 'PRO1',
             dayofbirth: '',
             address: ''
@@ -66,6 +66,7 @@ class ModalBooking extends Component {
             postBookingFromPatient(this.state)
             console.log(this.state)
             toast.success("Đặt lịch khám hoàn tất")
+            this.toggle()
 
         }
         else {
@@ -85,7 +86,8 @@ class ModalBooking extends Component {
 
     }
     render() {
-
+        console.log(this.props.doctorInfor)
+        console.log(this.props.isOpenModal)
         return (
             <React.Fragment>
 
@@ -96,12 +98,12 @@ class ModalBooking extends Component {
                     toggle={() => this.toggle()}
                 >
                     <ModalHeader><h4>Đặt lịch khám</h4>{
-                        this.props.doctorInfor.priceData && <h5>Giá tiền:  {this.props.doctorInfor.priceData.valueVi}</h5>
+                        this.props.doctorInfor && this.props.doctorInfor.priceData && <h5>Giá tiền:  {this.props.doctorInfor.priceData.valueVi}</h5>
                     }
                     </ModalHeader>
                     <ModalBody >
                         <input type="text"
-                            class="form-control input"
+                            className="form-control input"
                             placeholder="Họ tên bệnh nhân (Bắt buộc)"
                             onChange={(e) => this.handleOnChangeItem('namePatient', e)}
                         />
@@ -118,13 +120,13 @@ class ModalBooking extends Component {
                         }
                         <input
                             type="text"
-                            class="form-control input"
+                            className="form-control input"
                             placeholder="Số điện thoại liên hệ (bắt buộc)"
                             onChange={(e) => this.handleOnChangePhoneNumber(e)}
                         />
                         <input
                             type="text"
-                            class="form-control input"
+                            className="form-control input"
                             placeholder="Ngày/tháng/năm sinh (Bắt buộc)"
                             onChange={(e) => this.handleOnChangeItem('dayofbirth', e)}
                         />
@@ -142,21 +144,21 @@ class ModalBooking extends Component {
                         }
                         < input
                             type="text"
-                            class="form-control input"
+                            className="form-control input"
                             placeholder="Địa chỉ"
                             onChange={e => this.handleOnChangeItem('address', e)}
                         />
                         {
-                            this.props.doctorInfor.paymentData &&
+                            this.props.doctorInfor && this.props.doctorInfor.paymentData &&
                             <input
                                 type="text"
-                                class="form-control input"
+                                className="form-control input"
                                 value={'Hình thức thanh toán: ' + this.props.doctorInfor.paymentData.valueVi} />
                         }
 
                         <input
                             type="text"
-                            class="form-control "
+                            className="form-control "
                             placeholder="Lý do khám"
                             style={{ height: '80px' }}
                             onChange={e => this.handleOnChangeItem('status', e)}

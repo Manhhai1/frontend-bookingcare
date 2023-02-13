@@ -15,6 +15,9 @@ const getInformationDoctor = (id) => {
 const postScheduleDoctor = (data) => {
     return axios.post('api/post-schedule-doctor', data)
 }
+const postScheduleTeleDoctor = (data) => {
+    return axios.post('api/post-schedule-teledoctor', data)
+}
 const getScheduleDoctor = (id) => {
     return axios.get(`api/get-schedule-doctor?id=${id}`)
 }
@@ -24,4 +27,4 @@ const postDoctorInfor = (data) => {
 const getDoctorInfor = (id) => {
     return axios.get(`api/doctor-infor?id=${id}`)
 }
-export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor, postScheduleDoctor, getScheduleDoctor, postDoctorInfor, getDoctorInfor }
+export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor, postScheduleDoctor, getScheduleDoctor, postDoctorInfor, getDoctorInfor, postScheduleTeleDoctor }

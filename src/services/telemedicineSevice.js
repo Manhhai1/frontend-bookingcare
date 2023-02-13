@@ -15,3 +15,6 @@ export const getTelemedicineById = (id) => {
 export const updateTelemedicine = (data) => {
     return axios.put(`update-infor-telemedicine`, data)
 }
+export const getAllDoctorsFromTelemedicine = (id) => {
+    return axios.get(`telemedicine-all-doctors?id=${id}`)
+}

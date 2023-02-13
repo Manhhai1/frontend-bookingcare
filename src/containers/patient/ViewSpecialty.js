@@ -5,6 +5,7 @@ import { LANGUAGES } from '../../utils';
 import Footer from '../homepage/Footer/Footer';
 import './ViewSpecialty.scss'
 import RoleBookingCare from './RoleBookingCare';
+import { withRouter } from 'react-router'
 class ViewSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -38,7 +39,8 @@ class ViewSpecialty extends Component {
         await this.setState({
             allDoctors: data.allDoctorsFromSpecialty,
             specialty: obj,
-            schedule: schedule
+            schedule: schedule,
+            day: this.getDay(0)
         })
         this.formatImage(this.state.allDoctors)
     }
@@ -87,18 +89,14 @@ class ViewSpecialty extends Component {
             day: e.target.value
         })
     }
-    handleOpenRoleBookingCare = async () => {
-        let open = document.getElementById('content-role')
-        await this.setState({
+    handleOpenRoleBookingCare = () => {
+        this.setState({
             openRole: !this.state.openRole
         })
-        if (this.state.openRole) {
-            open.style.display = 'block'
-        }
-        else {
-            open.style.display = 'none'
-        }
-        console.log(open.style)
+    }
+    handleViewDoctor = (id) => {
+        this.props.history.push(`/information-doctor/${id}`)
+        console.log(id)
     }
     render() {
         let dayVi = ["Chủ nhật", "Thứ hai", "Thứ ba", " Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", 'Hôm nay', "Ngày mai"]
@@ -125,7 +123,7 @@ class ViewSpecialty extends Component {
                             this.state.allDoctors.map((item, index) => {
                                 return (
                                     <div className='doctor-section'>
-                                        <div className="avatar-doctor">{
+                                        <div className="avatar-doctor" onClick={() => this.handleViewDoctor(item.doctorId)}>{
                                             item.doctorData &&
                                             <img className='avatar' src={item.image} alt="" />
                                         }
@@ -179,7 +177,7 @@ class ViewSpecialty extends Component {
                         }
                     </div>
                     <div className='button-role' onClick={this.handleOpenRoleBookingCare}>Vai trò của Booking care</div>
-                    { }<RoleBookingCare></RoleBookingCare>
+                    {this.state.openRole && <RoleBookingCare></RoleBookingCare>}
                 </div>
                 <Footer > </Footer>
             </div>
@@ -198,4 +196,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewSpecialty);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ViewSpecialty));

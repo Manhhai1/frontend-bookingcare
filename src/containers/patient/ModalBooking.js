@@ -63,7 +63,7 @@ class ModalBooking extends Component {
         })
         let checkData = await this.checkData()
         if (checkData === true) {
-            postBookingFromPatient(this.state)
+            await postBookingFromPatient(this.state)
             console.log(this.state)
             toast.success("Đặt lịch khám hoàn tất")
             this.toggle()

@@ -17,6 +17,9 @@ class HomePageHeader extends Component {
     handleViewMoreTelemedicines = () => {
         this.props.history.push(path.VIEW_MORE_TELEMEDICINE)
     }
+    handleViewMoreTopDoctor = () => {
+        this.props.history.push(path.VIEW_MORE_DOCTOR)
+    }
     render() {
         let language = this.props.language
         let settings = this.props.settings
@@ -39,7 +42,7 @@ class HomePageHeader extends Component {
                                 <h6>Khám từ xa</h6>
                                 <p>Chọn Bác sĩ giỏi</p>
                             </div>
-                            <div className="mid-content-left">
+                            <div className="mid-content-left" onClick={this.handleViewMoreTopDoctor}>
                                 <h6><FormattedMessage id={"home-header.doctor"} /></h6>
                                 <p><FormattedMessage id={"home-header.select-doctor"} /></p>
                             </div>

@@ -21,10 +21,33 @@ const postScheduleTeleDoctor = (data) => {
 const getScheduleDoctor = (id) => {
     return axios.get(`api/get-schedule-doctor?id=${id}`)
 }
+const getScheduleDoctorJoinBooking = (id) => {
+    return axios.get(`api/schedule-doctor-booking?id=${id}`)
+}
 const postDoctorInfor = (data) => {
     return axios.post('api/post-infor-doctor', data)
 }
 const getDoctorInfor = (id) => {
     return axios.get(`api/doctor-infor?id=${id}`)
 }
-export { getTopDoctorHome, getAllDoctors, postInformationDoctor, getInformationDoctor, postScheduleDoctor, getScheduleDoctor, postDoctorInfor, getDoctorInfor, postScheduleTeleDoctor }
+const deleteBooking = (id) => {
+    return axios.delete(`api/delete-booking?id=${id}`)
+}
+const postHistory = (data) => {
+    return axios.post('api/post-history', data)
+}
+const updateInforDoctor = (data) => {
+    return axios.put('api/update-infor-doctor', data)
+}
+const getAllHistories = () => {
+    return axios.get('api/all-histories')
+}
+export {
+    getTopDoctorHome, getAllDoctors, postInformationDoctor,
+    getInformationDoctor, postScheduleDoctor, getScheduleDoctor,
+    postDoctorInfor, getDoctorInfor, postScheduleTeleDoctor,
+    getScheduleDoctorJoinBooking,
+    deleteBooking, postHistory,
+    updateInforDoctor,
+    getAllHistories
+}

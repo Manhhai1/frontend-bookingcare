@@ -8,6 +8,7 @@ import RoleBookingCare from './RoleBookingCare';
 import { withRouter } from 'react-router'
 import { getAllDoctorsFromTelemedicine, getTelemedicineById } from '../../services/telemedicineSevice';
 import ModalBooking from './ModalBooking';
+import iconVideo from '../../assets/images/icon/icon-video.jfif'
 class ViewTelemedicine extends Component {
     constructor(props) {
         super(props)
@@ -123,7 +124,7 @@ class ViewTelemedicine extends Component {
         let language = this.props.language
         return (
             <div className="container-specialty" >
-                <div className="header" >Telemedicine</div>
+                <div className="header" ></div>
                 <div className="specialty-body" >
                     < div className="section-specialty-description" >
                         <h4 className='specialty-name' >{this.state.telemedicine.name}</h4>
@@ -140,7 +141,7 @@ class ViewTelemedicine extends Component {
 
                                 return (
 
-                                    <div className='doctor-section'>
+                                    <div className='teledoctor-section'>
                                         {
                                             <ModalBooking
                                                 isOpenModal={this.state.isOpenModalBooking}
@@ -174,7 +175,7 @@ class ViewTelemedicine extends Component {
                                                 <option className='option' value={this.getDay(5)}>{language === LANGUAGES.VI ? dayVi[this.day(5)] : dayEn[this.day(5)]} - {this.getDay(5)}</option>
                                                 <option className='option' value={this.getDay(6)}>{language === LANGUAGES.VI ? dayVi[this.day(6)] : dayEn[this.day(6)]} - {this.getDay(6)}</option>
                                             </select>
-                                            <h6>LỊCH KHÁM TỪ XA</h6>
+                                            <h6>LỊCH TƯ VẤN QUA VIDEO<img style={{ height: '20px', width: '20px', marginTop: '-3px', marginLeft: '5px' }} src={iconVideo}></img></h6>
                                             <div className="hours">
                                                 {
                                                     this.state.schedule.length > 0 && item.doctorData && this.state.schedule.map((item1, index) => {
@@ -182,15 +183,20 @@ class ViewTelemedicine extends Component {
                                                         if (item1.scheduleTeledoctor) day = `${item1.scheduleTeledoctor.date}/${(+item1.scheduleTeledoctor.month + 1)}`
                                                         if (item1.doctorId == item.doctorData.id && day == this.state.day) {
 
-                                                            return (item1.scheduleTeledoctor && <button className='btn-hour' value={item1.doctorId} onClick={() => this.handleBooking(item)}>{item1.scheduleTeledoctor.Allcode.valueVi}</button>)
+                                                            return (item1.scheduleTeledoctor &&
+                                                                <button
+                                                                    className='btn-hour'
+                                                                    value={item1.doctorId}
+                                                                    onClick={() => this.handleBooking(item)}
+                                                                >
+                                                                    <div className='set-img'><img style={{ height: '20px', width: '20px' }} src={iconVideo}></img></div>
+                                                                    {item1.scheduleTeledoctor.Allcode.valueVi}
+                                                                </button>)
                                                         }
                                                     })
                                                 }
                                             </div>
                                             <div className="address">
-                                                <h6>ĐỊA CHỈ KHÁM</h6>
-                                                {item && <p>{item.nameClinic}</p>}
-                                                {item && <p>{item.addressClinic}</p>}
                                             </div>
                                             <div className="price">
                                                 <h6>GIÁ KHÁM: {item.priceData.valueVi}</h6>

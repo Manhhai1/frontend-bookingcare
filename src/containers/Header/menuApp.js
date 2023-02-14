@@ -54,6 +54,12 @@ export const doctorMenu = [
         name: 'menu.doctor.header', menus: [
             {
                 name: 'menu.doctor.schedule', link: '/doctor/doctor-schedule'
+            },
+            {
+                name: 'menu.doctor.update-information', link:'/doctor/update-information'
+            },
+            {
+                name: 'menu.doctor.history', link:'/doctor/histories'
             }
         ]
     }

@@ -11,10 +11,10 @@ import RemoteExamninationManage from '../containers/System/admin/remote_examinat
 import ScheduleTeledoctorManage from '../containers/System/admin/specialty/schedule_teledoctor/ScheduleTeledoctorManage';
 class System extends Component {
     render() {
-        const { systemMenuPath, isLoggedIn } = this.props;
+        const { systemMenuPath, isLoggedIn, userInfo} = this.props;
         return (
             <React.Fragment>
-                {this.props.isLoggedIn && <Header />}
+                {this.props.isLoggedIn&&<Header />}
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>

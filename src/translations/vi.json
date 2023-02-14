@@ -80,11 +80,13 @@
             "manage-schedule-doctor": "Quản lý lịch khám bác sĩ",
             "remote-examination": "Khám từ xa",
             "manage-remote-examination": "Quản lý khám từ xa",
-            "manage-schedule-teledoctor":"Lịch khám bác sĩ từ xa"
+            "manage-schedule-teledoctor": "Lịch khám bác sĩ từ xa"
         },
         "doctor": {
             "header": "Bác sĩ",
-            "schedule": "Quản lý khám bệnh"
+            "schedule": "Quản lý khám bệnh",
+            "update-information": "Cập nhật thông tin Bác sĩ",
+            "history": "Lịch sử khám bệnh"
         }
     },
     "manage-user": {

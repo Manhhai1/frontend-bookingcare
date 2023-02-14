@@ -6,6 +6,7 @@ import Footer from '../homepage/Footer/Footer';
 import './ViewSpecialty.scss'
 import RoleBookingCare from './RoleBookingCare';
 import { withRouter } from 'react-router'
+import ModalBooking from './ModalBooking';
 class ViewSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -22,7 +23,10 @@ class ViewSpecialty extends Component {
             doctorInfor: [],
             schedule: [],
             day: '',
-            openRole: false
+            openRole: false,
+            doctorInfor: {},
+            isOperModalBooking: false,
+            scheduleBooking: ''
         }
     }
     async componentDidMount() {
@@ -98,13 +102,26 @@ class ViewSpecialty extends Component {
         this.props.history.push(`/information-doctor/${id}`)
         console.log(id)
     }
+    handleBooking = (item, scheduleId) => {
+        console.log(item, scheduleId)
+        this.setState({
+            doctorInfor: item,
+            scheduleBooking: scheduleId
+        })
+        this.setOpenModal()
+    }
+    setOpenModal = () => {
+        this.setState({
+            isOpenModalBooking: !this.state.isOpenModalBooking
+        })
+    }
     render() {
         let dayVi = ["Chủ nhật", "Thứ hai", "Thứ ba", " Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", 'Hôm nay', "Ngày mai"]
         let dayEn = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 'Today', 'Tommorow']
         let date = new Date()
         let day = date.getDay()
         let language = this.props.language
-        console.log(this.state.allDoctors)
+        console.log(this.state.schedule)
         return (
             <div className="container-specialty" >
                 <div className="header" ></div>
@@ -123,6 +140,16 @@ class ViewSpecialty extends Component {
                             this.state.allDoctors.map((item, index) => {
                                 return (
                                     <div className='doctor-section'>
+                                        {
+                                            <ModalBooking
+                                                isOpenModal={this.state.isOpenModalBooking}
+                                                setOpenModal={this.setOpenModal}
+                                                doctorInfor={this.state.doctorInfor}
+                                                scheduleId ={this.state.scheduleBooking}
+                                            >
+                                              
+                                            </ModalBooking>
+                                        }
                                         <div className="avatar-doctor" onClick={() => this.handleViewDoctor(item.doctorId)}>{
                                             item.doctorData &&
                                             <img className='avatar' src={item.image} alt="" />
@@ -157,7 +184,7 @@ class ViewSpecialty extends Component {
                                                         let day
                                                         if (item1.scheduleDoctor) day = `${item1.scheduleDoctor.date}/${(+item1.scheduleDoctor.month + 1)}`
                                                         if (item1.doctorId == item.doctorData.id && day == this.state.day) {
-                                                            return (item1.scheduleDoctor && <button className='btn-hour'>{item1.scheduleDoctor.Allcode.valueVi}</button>)
+                                                            return (item1.scheduleDoctor && <button className='btn-hour' onClick={() => this.handleBooking(item, item1.scheduleDoctor.id)}>{item1.scheduleDoctor.Allcode.valueVi}</button>)
                                                         }
                                                     })
                                                 }

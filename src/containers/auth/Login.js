@@ -5,6 +5,7 @@ import * as actions from "../../store/actions";
 import { handleLoginUser } from "../../services/userService"
 import './Login.scss';
 import { identity } from 'lodash';
+import { withRouter } from 'react-router';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -39,7 +40,10 @@ class Login extends Component {
             let data = await handleLoginUser(this.state.username, this.state.password)
             console.log(data.dataUser)
             if (data) {
+                data.dataUser.roleId === 'R1' ? this.props.history.push('/system/user-manage') : this.props.history.push('/doctor/doctor-schedule')
                 this.props.userLoginSuccess(data.dataUser)
+
+                // this.props.history.push('/system/user-manage')
             }
         } catch (error) {
             if (error.response) {
@@ -63,7 +67,7 @@ class Login extends Component {
                                 <span onClick={this.handleShowHidePassword}><i className={this.state.showPass ? 'far fa-eye' : 'far fa-eye-slash'}></i></span>
                             </div>
                             <div className="error" style={{ color: 'red' }}>{this.state.message}</div>
-                            <button onClick={() => { this.HandleLogin() }}>login</button>
+                            <button onClick={() => this.HandleLogin()}>login</button>
                             <p className="message">Not registered? <a href="#">Create an account</a></p>
                         </div>
                     </div>
@@ -82,9 +86,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        //userLoginFail: () => dispatch(actions.userLoginFail()),
+        userLoginFail: () => dispatch(actions.userLoginFail()),
         userLoginSuccess: (userInfo) => dispatch(actions.userLoginSucess(userInfo))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

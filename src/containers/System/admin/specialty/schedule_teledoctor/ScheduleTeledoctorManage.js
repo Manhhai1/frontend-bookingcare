@@ -114,7 +114,7 @@ class ScheduleTeledoctorManage extends Component {
             <React.Fragment>
                 <h4>Manage Schedule Teledoctor</h4>
 
-                <div className='manage-schedule'>
+                <div className='manage-schedule-teledoctor'>
                     <div className="choice-doctor ">
                         <label htmlFor=""> <h5>Chọn bác sĩ</h5></label>{
                             <Select
@@ -135,7 +135,7 @@ class ScheduleTeledoctorManage extends Component {
 
                     </div>
                 </div>
-                <div className="schedule-hours-examination">
+                <div className="schedule-hours-examination-teledoctor">
                     <h5>Các khung giờ khám</h5>
                     <div className="schedule-hours">
                         {

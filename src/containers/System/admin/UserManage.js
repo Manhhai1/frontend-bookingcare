@@ -12,7 +12,7 @@ import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 // import style manually
 import 'react-markdown-editor-lite/lib/index.css';
-
+import { withRouter } from 'react-router';
 // Register plugins if required
 // MdEditor.use(YOUR_PLUGINS_HERE);
 
@@ -167,4 +167,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserManage);
+    export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserManage));

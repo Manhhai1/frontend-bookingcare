@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import UserManage from '../containers/System/admin/UserManage';
-import UserRedux from '../containers/System/admin/UserRedux';
 import Header from '../containers/Header/Header';
 import DoctorUpdateInformationManage from '../containers/System/admin/DoctorUpdateManage';
 import DoctorScheduleManage from '../containers/System/admin/DoctorScheduleManage';
@@ -19,7 +18,6 @@ class System extends Component {
                     <div className="system-list">
                         <Switch>
                             <Route path="/system/user-manage" component={UserManage} />
-                            <Route path="/system/user-redux" component={UserRedux} />
                             <Route path="/system/manage-information-doctors" component={DoctorUpdateInformationManage} />
                             <Route path="/system/manage-schedule-doctors" component={DoctorScheduleManage} />
                             <Route path='/system/manage-schedule-teledoctors' component={ScheduleTeledoctorManage}></Route>

@@ -2,12 +2,6 @@ export const adminMenu = [
     { //hệ thống
         name: 'menu.system.header', menus: [
             {
-                name: 'menu.admin.crud', link: '/system/user-manage',
-            },
-            {
-                name: 'menu.admin.crud-redux', link: '/system/user-redux',
-            },
-            {
                 name: 'menu.admin.manage-information-doctor', link: '/system/manage-information-doctors'
 
             },
@@ -20,16 +14,6 @@ export const adminMenu = [
             {
                 name: 'menu.admin.manage-user', link: '/system/user-manage',
             },
-            {
-                name: 'menu.admin.manage-admin', link: '/system/user-admin',
-            },
-            {
-                name: 'menu.doctor.header', menus: [
-                    {
-                        name: 'menu.doctor.schedule', link: '/doctor/doctor-schedule'
-                    }
-                ]
-            }
         ],
     },
     {

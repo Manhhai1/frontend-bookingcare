@@ -27,7 +27,9 @@ import ViewMoreSpecialty from './homepage/viewmore/ViewMoreSpecialty';
 import ViewMoreTelemedicine from './homepage/viewmore/ViewMoreTelemedicine';
 import ViewMoreDoctor from './homepage/viewmore/ViewMoreDoctor';
 import ViewTelemedicine from './patient/ViewTelemedicine';
+import { Redirect } from 'react-router-dom';
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"></link>
+
 
 class App extends Component {
 
@@ -66,14 +68,14 @@ class App extends Component {
 
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
-                                    <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
+                                    <Route path={path.LOGIN} component={Login} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DOCTOR} component={userIsAuthenticated(Doctor)}></Route>
                                     <Route path='/information-doctor/:id' component={ViewInformationDoctor}></Route>
                                     <Route path={path.TELEMEDICINE} component={ViewTelemedicine}></Route>
                                     <Route path={path.SPECIALTY} component={ViewSpecialty}></Route>
-
+                                   
                                     <Route path={path.VIEW_MORE_DOCTOR} component={ViewMoreDoctor}></Route>
                                     <Route path={path.VIEW_MORE_SPECIALTY} component={ViewMoreSpecialty}></Route>
                                     <Route path={path.VIEW_MORE_TELEMEDICINE} component={ViewMoreTelemedicine}></Route>

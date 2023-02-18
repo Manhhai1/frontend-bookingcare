@@ -17,24 +17,17 @@ class Header extends Component {
     handleClickChangeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
-    checkRoleLogin = (user) => {
-        if (user) {
-            if (user.roleId === 'R1') return adminMenu
-            if (user.roleId === 'R2') return doctorMenu
-        }
-    }
+
     componentDidMount() {
-       
     }
     render() {
         const { processLogout, language, userInfo } = this.props;
-        console.log(userInfo)
         return (
             <div className="header-container">
 
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
-                    <Navigator menus={this.checkRoleLogin(userInfo)} />
+                    <Navigator menus={userInfo.roleId === 'R1' ? adminMenu : doctorMenu} />
                 </div>
 
                 {/* nút logout */}

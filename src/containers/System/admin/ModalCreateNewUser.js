@@ -62,6 +62,12 @@ class CreateNewUser extends Component {
         })
     }
     componentDidMount() {
+        this.setState({
+            arrPosition: this.props.positionType.typeCode,
+            arrRole: this.props.roleType.typeCode,
+            arrGender: this.props.genderReduxs.typeCode
+
+        })  
 
     }
     componentDidUpdate(prevProps, prevState, snapsot) {
@@ -258,11 +264,11 @@ class CreateNewUser extends Component {
                             />
                         </div>
                         <div className="input">
-                            <p className='field half avatar'>
+                            <p className='field half avatar-1'>
                                 <label className='label' for='image'><FormattedMessage id={'manage-user.image'}></FormattedMessage></label>
                                 <label for="file" className='upload-img'>Tải ảnh lên</label>
                                 <div>
-                                    <img style={{ height: '100px' }} src={this.state.image} />
+                                    <img style={{ height: '100px', width: '100px' }} src={this.state.image} />
                                     <input type="file" name="myImage" id='file' onChange={this.onImageChange} />
                                 </div>
                             </p>

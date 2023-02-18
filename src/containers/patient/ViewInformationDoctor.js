@@ -6,6 +6,7 @@ import { getInformationDoctor, getScheduleDoctor, getDoctorInfor } from '../../s
 import Footer from '../homepage/Footer/Footer';
 import { LANGUAGES } from '../../utils';
 import ModalBooking from './ModalBooking'
+import Header from '../homepage/Header';
 class ViewInformationDoctor extends Component {
     constructor(props) {
         super(props)
@@ -38,14 +39,6 @@ class ViewInformationDoctor extends Component {
             schedule: scheduleExaminates.data,
             doctorInfor: doctorInfor.data
         })
-    }
-    convertTypeImage = (image) => {
-        let imageConvert
-        if (image) {
-            const imageBuffer = new Buffer(image, 'base64').toString('binary');
-            imageConvert = imageBuffer.toString('base64')
-        }
-        return imageConvert;
     }
 
     handleOnChangeChoiceDate = (e) => {
@@ -100,11 +93,11 @@ class ViewInformationDoctor extends Component {
                     scheduleId={this.state.scheduleId}
                 >
                 </ModalBooking>
-                <div className="header"></div>
+               <Header></Header>
                 <div className="content-view-information">
                     <div className="text-information-doctor">
                         <div className='avatar-doctor'>
-                            <img src={this.convertTypeImage(this.state.data.image)} alt="" />
+                            <img src={this.state.data.image} alt="" />
                         </div>
                         {
                             this.state.data && this.state.data.Markdown && <div className="information">

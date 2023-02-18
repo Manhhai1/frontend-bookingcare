@@ -22,14 +22,6 @@ class Specialty extends Component {
             specialties: data.specialties
         })
     }
-    convertTypeImage = (image) => {
-        let imageConvert
-        if (image) {
-            const imageBuffer = new Buffer(image, 'base64').toString('binary');
-            imageConvert = imageBuffer.toString('base64')
-        }
-        return imageConvert;
-    }
     handleViewSpecialty = (id) => {
         this.props.history.push(`/view-specialty/${id}`)
     }
@@ -53,7 +45,7 @@ class Specialty extends Component {
                                 return (
                                     <div className="img-customize" onClick={() => this.handleViewSpecialty(item.id)}>
 
-                                        <img src={this.convertTypeImage(item.image)} alt="" />
+                                        <img src={item.image} alt="" />
 
                                         {
                                         }

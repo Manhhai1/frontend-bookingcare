@@ -8,17 +8,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { LANGUAGES, path } from '../../../utils';
 import * as actions from '../../../store/actions/adminActions'
 import { withRouter } from 'react-router';
+import { getTopDoctorHome } from '../../../services/doctorService';
 class FamousDoctorLastWeek extends Component {
-    convertTypeImage = (image) => {
-        let imageConvert
-        if (image) {
-            const imageBuffer = new Buffer(image, 'base64').toString('binary');
-            imageConvert = imageBuffer.toString('base64')
-        }
-        return imageConvert;
-    }
-    componentDidMount = () => {
+    componentDidMount = async () => {
         this.props.getTopDoctorHome()
+        console.log(getTopDoctorHome(10))
     }
     handleViewInformationDoctor = (doctor) => {
         console.log(doctor)
@@ -49,7 +43,7 @@ class FamousDoctorLastWeek extends Component {
                                 return (
                                     <div className="img-customize" onClick={() => this.handleViewInformationDoctor(item)}>
 
-                                        <img src={this.convertTypeImage(item.image)} alt="" />
+                                        <img src={item.image} alt="" />
 
                                         {
                                             item.positionData && <h6>{language === LANGUAGES.VI ? item.positionData.valueVi : item.positionData.valueEn}</h6>

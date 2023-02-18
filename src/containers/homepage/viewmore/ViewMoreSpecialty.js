@@ -4,6 +4,7 @@ import { getAllSpecialties } from '../../../services/specialtySevice';
 import { path } from '../../../utils';
 import './ViewMoreSpecialty.scss'
 import icon from '../../../assets/images/icon/download.png'
+import Header from '../Header';
 class ViewMoreSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -17,21 +18,6 @@ class ViewMoreSpecialty extends Component {
         this.setState({
             specialties: specialties.specialties
         })
-        await this.formatImage(specialties.specialties)
-    }
-    formatImage = async (images) => {
-        await images.forEach((ele, index) => {
-            if (ele.image) {
-                const imageBuffer = new Buffer(ele.image, 'base64').toString('binary')
-                ele.image = imageBuffer.toString('base64')
-            }
-        });
-        this.setState({
-            ...images
-        })
-    }
-    handleBack = () => {
-        this.props.history.push('/home');
     }
     handleClickViewSpecialty = (id) => {
         this.props.history.push(`/view-specialty/${id}`)
@@ -40,10 +26,7 @@ class ViewMoreSpecialty extends Component {
         console.log(this.state.specialties)
         return (
             <div className="view-more-container">
-                <div className="view-more-header">
-                    <img className='icon-back' src={icon} alt="" onClick={this.handleBack} />
-                    <h4>Chuyên khoa</h4>
-                </div>
+                 <Header name ={'Chuyên khoa'}></Header>
                 <div className="view-content">
                     {
 

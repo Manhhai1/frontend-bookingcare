@@ -22,14 +22,7 @@ class Telemedicine extends Component {
             telemedicines: data.telemedicines
         })
     }
-    convertTypeImage = (image) => {
-        let imageConvert
-        if (image) {
-            const imageBuffer = new Buffer(image, 'base64').toString('binary');
-            imageConvert = imageBuffer.toString('base64')
-        }
-        return imageConvert;
-    }
+
     handleViewTelemedicine = (id) => {
         this.props.history.push(`/view-telemedicine/${id}`)
     }
@@ -53,7 +46,7 @@ class Telemedicine extends Component {
                                 return (
                                     <div className="img-customize" onClick={() => this.handleViewTelemedicine(item.id)}>
 
-                                        <img src={this.convertTypeImage(item.image)} alt="" />
+                                        <img src={item.image} alt="" />
 
                                         {
                                         }

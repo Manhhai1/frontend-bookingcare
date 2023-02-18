@@ -9,6 +9,7 @@ import { withRouter } from 'react-router'
 import { getAllDoctorsFromTelemedicine, getTelemedicineById } from '../../services/telemedicineSevice';
 import ModalBooking from './ModalBooking';
 import iconVideo from '../../assets/images/icon/icon-video.jfif'
+import Header from '../homepage/Header';
 class ViewTelemedicine extends Component {
     constructor(props) {
         super(props)
@@ -48,18 +49,6 @@ class ViewTelemedicine extends Component {
             telemedicine: obj,
             schedule: schedule,
             day: this.getDay(0)
-        })
-        this.formatImage(this.state.allDoctors)
-    }
-    formatImage = async (images) => {
-        await images.forEach((ele, index) => {
-            if (ele.doctorData) {
-                const imageBuffer = new Buffer(ele.doctorData.image, 'base64').toString('binary')
-                ele.image = imageBuffer.toString('base64')
-            }
-        });
-        this.setState({
-            ...images
         })
     }
     handleViewMoreDescription = async () => {
@@ -124,7 +113,7 @@ class ViewTelemedicine extends Component {
         let language = this.props.language
         return (
             <div className="container-specialty" >
-                <div className="header" ></div>
+                <Header></Header>
                 <div className="specialty-body" >
                     < div className="section-specialty-description" >
                         <h4 className='specialty-name' >{this.state.telemedicine.name}</h4>
@@ -150,7 +139,7 @@ class ViewTelemedicine extends Component {
                                         }
                                         <div className="avatar-doctor" onClick={() => this.handleViewDoctor(item.doctorId)}>{
                                             item.doctorData &&
-                                            <img className='avatar' src={item.image} alt="" />
+                                            <img className='avatar' src={item.doctorData.image} alt="" />
                                         }
                                         </div>
                                         <div className="description-doctor">{

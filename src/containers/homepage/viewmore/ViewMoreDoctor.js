@@ -4,7 +4,7 @@ import { getAllDoctors, getTopDoctorHome } from '../../../services/doctorService
 import { path } from '../../../utils';
 import './ViewMoreDoctor.scss'
 import Select from 'react-select'
-import icon from '../../../assets/images/icon/download.png'
+import Header from '../Header';
 class ViewMoreDoctor extends Component {
     constructor(props) {
         super(props)
@@ -23,20 +23,7 @@ class ViewMoreDoctor extends Component {
             doctors: doctors.data,
             allDoctors: alldoctors.allDoctors
         })
-        this.formatImage(doctors.data)
-        this.formatImage(alldoctors.allDoctors)
         this.formatNameDoctor(alldoctors.allDoctors)
-    }
-    formatImage = async (images) => {
-        await images.forEach((ele, index) => {
-            if (ele.image) {
-                const imageBuffer = new Buffer(ele.image, 'base64').toString('binary')
-                ele.image = imageBuffer.toString('base64')
-            }
-        });
-        this.setState({
-            ...images
-        })
     }
     formatNameDoctor = (arr) => {
         let ar = []
@@ -52,9 +39,7 @@ class ViewMoreDoctor extends Component {
             arrNameDoctors: ar
         })
     }
-    handleBack = () => {
-        this.props.history.push('/home');
-    }
+    
     handleClickViewDoctor = (id) => {
         this.props.history.push(`/information-doctor/${id}`)
     }
@@ -70,10 +55,7 @@ class ViewMoreDoctor extends Component {
         console.log(this.state.doctors)
         return (
             <div className="view-more-container">
-                <div className="view-more-header">
-                    <img className='icon-back' src={icon} alt="" onClick={this.handleBack} />
-                    <h4>Bác sĩ</h4>
-                </div>
+                <Header name ={'Bác sĩ'}></Header>
                 <div className="view-content">
                     <p>Tìm kiếm bác sĩ theo tên</p>
                     <Select className='find-doctor'

@@ -7,6 +7,7 @@ import './ViewSpecialty.scss'
 import RoleBookingCare from './RoleBookingCare';
 import { withRouter } from 'react-router'
 import ModalBooking from './ModalBooking';
+import Header from '../homepage/Header';
 class ViewSpecialty extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +21,6 @@ class ViewSpecialty extends Component {
             },
             allDoctors: [],
             viewMoreActive: false,
-            doctorInfor: [],
             schedule: [],
             day: '',
             openRole: false,
@@ -32,6 +32,7 @@ class ViewSpecialty extends Component {
     async componentDidMount() {
         let id = this.props.match.params.id
         let data = await getAllDoctorsFromSpecialty(id)
+        console.log(data)
         let schedule = data.allScheduleOfDoctor
         let specialty = await getSpecialtyById(id)
         console.log(data.allDoctorsFromSpecialty)
@@ -46,19 +47,8 @@ class ViewSpecialty extends Component {
             schedule: schedule,
             day: this.getDay(0)
         })
-        this.formatImage(this.state.allDoctors)
     }
-    formatImage = async (images) => {
-        await images.forEach((ele, index) => {
-            if (ele.doctorData) {
-                const imageBuffer = new Buffer(ele.doctorData.image, 'base64').toString('binary')
-                ele.image = imageBuffer.toString('base64')
-            }
-        });
-        this.setState({
-            ...images
-        })
-    }
+
     handleViewMoreDescription = async () => {
         let description = document.getElementById('description-content')
         await this.setState({
@@ -121,10 +111,9 @@ class ViewSpecialty extends Component {
         let date = new Date()
         let day = date.getDay()
         let language = this.props.language
-        console.log(this.state.schedule)
         return (
             <div className="container-specialty" >
-                <div className="header" ></div>
+              <Header></Header>
                 <div className="specialty-body" >
                     < div className="section-specialty-description" >
                         <h4 className='specialty-name' >{this.state.specialty.name}</h4>
@@ -152,7 +141,7 @@ class ViewSpecialty extends Component {
                                         }
                                         <div className="avatar-doctor" onClick={() => this.handleViewDoctor(item.doctorId)}>{
                                             item.doctorData &&
-                                            <img className='avatar' src={item.image} alt="" />
+                                            <img className='avatar' src={item.doctorData.image} alt="" />
                                         }
                                         </div>
                                         <div className="description-doctor">{

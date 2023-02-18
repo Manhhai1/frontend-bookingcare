@@ -47,7 +47,7 @@ class App extends Component {
         }
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         this.handlePersistorState();
         this.props.getGenderStart()
         this.props.getPositionStart()
@@ -75,7 +75,7 @@ class App extends Component {
                                     <Route path='/information-doctor/:id' component={ViewInformationDoctor}></Route>
                                     <Route path={path.TELEMEDICINE} component={ViewTelemedicine}></Route>
                                     <Route path={path.SPECIALTY} component={ViewSpecialty}></Route>
-                                   
+
                                     <Route path={path.VIEW_MORE_DOCTOR} component={ViewMoreDoctor}></Route>
                                     <Route path={path.VIEW_MORE_SPECIALTY} component={ViewMoreSpecialty}></Route>
                                     <Route path={path.VIEW_MORE_TELEMEDICINE} component={ViewMoreTelemedicine}></Route>

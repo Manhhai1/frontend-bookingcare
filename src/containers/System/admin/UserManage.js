@@ -37,16 +37,10 @@ class UserManage extends Component {
     }
     getAllUsers = async () => {
         let response = await getAllUsers('all');
-        await response.allusers.forEach((ele, index) => {
-            if (ele.image) {
-                const imageBuffer = new Buffer(ele.image, 'base64').toString('binary')
-                ele.image = imageBuffer.toString('base64')
-            }
-        });
         if (response && response.errCode === 0) {
             this.setState({
                 arrUsers: response.allusers
-            }, () => { console.log(this.state.arrUsers) })
+            })
         }
     }
     handleClickNewUser = () => {
